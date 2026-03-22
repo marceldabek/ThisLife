@@ -11,12 +11,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
   // HIGH SCHOOL (ages 13-17)
   // ============================================================
 
-  // 1. Caught cheating on a test
   {
     id: 'hs_caught_cheating',
     title: 'Academic Espionage',
-    description:
-      'Your teacher catches you with a cheat sheet so elaborate it has its own table of contents and bibliography. She holds it up and says, "This is the most effort you\'ve put into anything all year."',
+    description: 'Your teacher catches you with an elaborate cheat sheet.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -27,12 +25,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'confess',
         text: 'Confess and beg for mercy',
-        hint: 'Honesty might help... or not',
         outcomes: [
           {
             weight: 6,
-            description:
-              'Your teacher respects the honesty and gives you a zero instead of reporting you. She keeps the cheat sheet "for the faculty holiday party."',
+            description: 'She gives you a zero instead of reporting you. Keeps the cheat sheet "for the faculty party."',
             effects: [
               { type: 'stat', target: 'smarts', value: -5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -41,8 +37,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Your teacher is unmoved by your groveling and reports you to the principal. Your parents get a phone call that ruins dinner for the next three weeks.',
+            description: 'Reported to the principal. Your parents get a call that ruins dinner for weeks.',
             effects: [
               { type: 'stat', target: 'smarts', value: -8 },
               { type: 'stat', target: 'happiness', value: -20 },
@@ -53,13 +48,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'deny',
-        text: 'Deny everything — "That\'s not mine"',
-        hint: 'It has your name on it',
+        text: 'Deny everything',
         outcomes: [
           {
             weight: 3,
-            description:
-              'Against all logic, the teacher buys it. Your classmate Tyler takes the fall. You feel nothing. This is who you are now.',
+            description: 'The teacher buys it. Tyler takes the fall. You feel nothing.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'reputation', value: -10 },
@@ -68,8 +61,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'The cheat sheet literally has your name, student ID, and a doodle of your face on it. You get suspended for three days, which your parents treat as a prison sentence.',
+            description: 'It has your name, student ID, and a doodle of your face on it. Suspended three days.',
             effects: [
               { type: 'stat', target: 'smarts', value: -5 },
               { type: 'stat', target: 'happiness', value: -25 },
@@ -80,13 +72,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'argue_art',
-        text: 'Argue the cheat sheet is a work of art',
-        hint: 'Bold strategy',
+        text: 'Call it a work of art',
         outcomes: [
           {
             weight: 2,
-            description:
-              'The art teacher overhears and agrees it belongs in the spring showcase. You still fail the test, but you win Best Mixed Media at the art show.',
+            description: 'The art teacher agrees. You fail the test but win Best Mixed Media at the art show.',
             effects: [
               { type: 'stat', target: 'smarts', value: -3 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -95,8 +85,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 8,
-            description:
-              'Your teacher stares at you for so long you can hear the fluorescent lights buzzing. Double detention.',
+            description: 'Your teacher stares at you until you hear the fluorescent lights. Double detention.',
             effects: [
               { type: 'stat', target: 'smarts', value: -5 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -113,12 +102,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 2. Prom invite
   {
     id: 'hs_prom_invite',
-    title: 'Prom Night Approaches',
-    description:
-      'Prom is coming up and the pressure is suffocating. Someone asks you to go with them using a poster board sign in the cafeteria. The entire school is watching. You can feel 200 phones recording.',
+    title: 'Prom Night',
+    description: 'Someone asks you to prom with a sign in the cafeteria.',
     conditions: [
       { type: 'minAge', value: 16 },
       { type: 'maxAge', value: 17 },
@@ -129,12 +116,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'accept',
         text: 'Accept the promposal',
-        hint: 'The crowd demands it',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You have a magical night. The DJ plays nothing but songs from 2009 and the punch tastes like regret, but you dance like nobody is watching (they are, and it goes viral).',
+            description: 'Magical night. Bad DJ, questionable punch, but you dance like nobody\'s watching.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'money', value: -200 },
@@ -143,8 +128,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your date spends the entire night on their phone. You slow dance alone to a Kidz Bop cover. The limo driver feels bad and gives you life advice on the ride home.',
+            description: 'Your date stays on their phone all night. You slow dance alone.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'money', value: -200 },
@@ -156,12 +140,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'reject',
         text: 'Say no in front of everyone',
-        hint: 'You will be remembered for this',
         outcomes: [
           {
             weight: 5,
-            description:
-              'The cafeteria goes silent. Someone drops a tray. The rejected party handles it with grace, but their friends do not. Your locker gets decorated with sad face stickers for a month.',
+            description: 'The cafeteria goes silent. Their friends decorate your locker with sad stickers.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'reputation', value: -20 },
@@ -169,8 +151,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You say no, but you do it so kindly that people actually respect you for it. The person later thanks you for being honest. Emotional maturity: unlocked.',
+            description: 'You say no so kindly people actually respect you for it.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'reputation', value: 5 },
@@ -180,13 +161,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'go_alone',
-        text: 'Skip the drama, go solo',
-        hint: 'Main character energy',
+        text: 'Go solo',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You show up alone, own the dance floor, and become a legend. Three people ask for your number. The yearbook captures you mid-splits.',
+            description: 'You own the dance floor alone. Three people ask for your number.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'looks', value: 5 },
@@ -196,8 +175,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Going alone sounded empowering in theory. In practice, you spend two hours at the snack table having an existential crisis next to the chocolate fountain.',
+            description: 'Two hours at the snack table having an existential crisis by the chocolate fountain.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'money', value: -150 },
@@ -208,12 +186,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'skip_prom',
         text: 'Skip prom entirely',
-        hint: 'Save money, miss memories',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You stay home and binge-watch a 14-season medical drama. You feel nothing. Until Monday, when everyone\'s stories make you feel everything.',
+            description: 'You binge-watch TV. Monday\'s stories make you feel everything you missed.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -221,8 +197,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You skip prom and have genuinely one of the best nights of your life eating pizza and playing video games. Prom was reportedly terrible anyway. The DJ had a meltdown.',
+            description: 'Pizza and video games. Best night ever. Prom was reportedly terrible anyway.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
             ],
@@ -238,12 +213,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 3,
   },
 
-  // 3. School suspension incident
   {
     id: 'hs_suspension',
     title: 'The Incident',
-    description:
-      'You\'re called to the principal\'s office. Apparently, someone saw you doing something "unacceptable" in the hallway. The principal adjusts his glasses and says, "We need to talk about the ferret."',
+    description: 'You\'re called to the principal\'s office. "We need to talk about the ferret."',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -253,13 +226,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'accept_punishment',
-        text: 'Accept the suspension quietly',
-        hint: 'Three days of freedom... sort of',
+        text: 'Accept the suspension',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You serve your three-day suspension like a political prisoner. Your parents make you do chores the entire time. You somehow end up more tired than if you\'d gone to school.',
+            description: 'Three days of chores at home. More exhausting than school.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: -3 },
@@ -268,8 +239,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Three days off. You sleep until noon, eat cereal for every meal, and discover a passion for documentary filmmaking. Not all bad.',
+            description: 'Three days off. You sleep till noon and discover a passion for documentaries.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -281,12 +251,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'fight_it',
         text: 'Argue it wasn\'t your ferret',
-        hint: 'Technically true?',
         outcomes: [
           {
             weight: 4,
-            description:
-              'Your impassioned defense works. The ferret is traced back to the biology teacher\'s "experimental curriculum." You are free. The ferret is not.',
+            description: 'Your defense works. The ferret is traced back to the biology teacher.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -295,8 +263,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'The principal pulls up security footage of you literally carrying the ferret in your backpack. Suspension extended to five days.',
+            description: 'Security footage shows you carrying the ferret in your backpack. Five days.',
             effects: [
               { type: 'stat', target: 'happiness', value: -20 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -307,13 +274,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'parents_called',
-        text: 'Break down crying and call your parents',
-        hint: 'The nuclear option',
+        text: 'Break down and call your parents',
         outcomes: [
           {
             weight: 5,
-            description:
-              'Your mom arrives and argues with the principal for forty-five minutes. You get off with a warning. Your mom lectures you for the next six months, which is arguably worse.',
+            description: 'Your mom argues with the principal for 45 minutes. Warning only. Lectures for months.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'reputation', value: 5 },
@@ -321,8 +286,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your dad shows up, takes one look at the ferret situation, and says "I\'m not even surprised anymore." You\'re grounded for a month.',
+            description: 'Your dad says "I\'m not even surprised anymore." Grounded for a month.',
             effects: [
               { type: 'stat', target: 'happiness', value: -20 },
               { type: 'reputation', value: -5 },
@@ -338,12 +302,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 12,
   },
 
-  // 4. Part-time job offered
   {
     id: 'hs_parttime_job',
-    title: 'Help Wanted (Desperately)',
-    description:
-      'A local business is hiring teens, presumably because they ran out of adults willing to work for minimum wage. You have options, each more soul-crushing than the last.',
+    title: 'Help Wanted',
+    description: 'A local business is hiring teens for minimum wage. You have options.',
     conditions: [
       { type: 'minAge', value: 15 },
       { type: 'maxAge', value: 17 },
@@ -354,12 +316,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'fast_food',
         text: 'Take the fast food job',
-        hint: 'Free fries (sometimes)',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You spend your weekends asking people if they want to supersize. The grease never fully washes out of your pores, but you learn the value of a dollar. It\'s not much.',
+            description: 'Weekends asking "want to supersize?" The grease never washes out.',
             effects: [
               { type: 'money', value: 400 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -369,8 +329,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You accidentally become the best employee they\'ve ever had. Your manager, a 19-year-old with a neck tattoo of a pizza slice, promotes you to shift lead.',
+            description: 'You accidentally become the best employee. Promoted to shift lead.',
             effects: [
               { type: 'money', value: 600 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -383,12 +342,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'retail',
         text: 'Take the retail job',
-        hint: 'Customer is always wrong',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You fold the same shirt 847 times in one shift. A customer screams at you because a coupon from 2019 won\'t scan. You develop a permanent customer service smile that never reaches your eyes.',
+            description: 'You fold the same shirt 847 times. A customer screams about an expired coupon.',
             effects: [
               { type: 'money', value: 450 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -398,8 +355,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'The employee discount is fire. You become the best-dressed person in school on a budget. Your coworkers are actually cool and you form a trauma bond over holiday shifts.',
+            description: 'Employee discount is great. Best-dressed in school on a budget.',
             effects: [
               { type: 'money', value: 350 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -412,15 +368,13 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'tutoring',
         text: 'Become a tutor',
-        hint: 'Those who can\'t do, teach',
         conditions: [
           { type: 'minStat', value: 60, stat: 'smarts' },
         ],
         outcomes: [
           {
             weight: 6,
-            description:
-              'You tutor kids who are somehow even less motivated than you are. But explaining things to others actually makes you understand them better. You accidentally become smart.',
+            description: 'Teaching others makes you smarter. You accidentally become a nerd.',
             effects: [
               { type: 'money', value: 500 },
               { type: 'stat', target: 'smarts', value: 8 },
@@ -430,8 +384,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Your student\'s parent accuses you of "not trying hard enough" when their kid fails. The kid was playing games on their phone the entire time. You vow to never teach again.',
+            description: 'Your student\'s parent blames you when the kid fails. He was gaming the whole time.',
             effects: [
               { type: 'money', value: 300 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -448,12 +401,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 5. Peer pressure — drugs
   {
     id: 'hs_peer_pressure_drugs',
-    title: 'The Cool Kids\' Table',
-    description:
-      'Behind the bleachers, the kids who peaked in middle school offer you something that is "totally chill" and "everyone\'s doing it." The DARE officer\'s voice echoes faintly in your skull.',
+    title: 'Behind the Bleachers',
+    description: 'The cool kids offer you something "totally chill" behind the bleachers.',
     conditions: [
       { type: 'minAge', value: 14 },
       { type: 'maxAge', value: 17 },
@@ -464,12 +415,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'try_it',
         text: 'Give in to peer pressure',
-        hint: 'DARE failed you',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You take a hit and immediately cough for seven minutes straight. Everyone laughs. You are now "cool" by the loosest possible definition. Your lungs file a formal complaint.',
+            description: 'You cough for seven minutes. Everyone laughs. You\'re "cool" by the loosest definition.',
             effects: [
               { type: 'stat', target: 'health', value: -10 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -479,8 +428,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'You try it and absolutely nothing happens. You\'re not sure if the stuff was fake or if you\'re immune. Either way, you spent $20 to stand behind bleachers and feel nothing.',
+            description: 'Nothing happens. You spent $20 to stand behind bleachers and feel nothing.',
             effects: [
               { type: 'money', value: -20 },
               { type: 'stat', target: 'happiness', value: -5 },
@@ -488,8 +436,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'A teacher catches everyone mid-session. You get marched to the office while your "friends" scatter like roaches when the lights come on. None of them vouch for you.',
+            description: 'A teacher catches everyone. Your "friends" scatter. None vouch for you.',
             effects: [
               { type: 'stat', target: 'health', value: -5 },
               { type: 'stat', target: 'happiness', value: -20 },
@@ -501,12 +448,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'refuse',
         text: '"Nah, I\'m good"',
-        hint: 'The hardest easy thing to say',
         outcomes: [
           {
             weight: 6,
-            description:
-              'They call you boring for about thirty seconds, then forget you exist. You walk away with your lungs and dignity intact. Your future self sends a thank-you card.',
+            description: 'They call you boring for 30 seconds, then forget. Lungs and dignity intact.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'health', value: 3 },
@@ -515,8 +460,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'To your surprise, two other people also say no and you end up hanging out together instead. You accidentally form a wholesome friend group over shared sobriety.',
+            description: 'Two others say no too. You accidentally form a wholesome friend group.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'reputation', value: 5 },
@@ -527,13 +471,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'snitch',
-        text: 'Report them to the school',
-        hint: 'Snitches get... complicated social lives',
+        text: 'Report them',
         outcomes: [
           {
             weight: 5,
-            description:
-              'The school thanks you. The cool kids do not. You spend the rest of the year being called a narc, but you get a "Good Citizenship" award that literally nobody respects.',
+            description: 'You get a "Good Citizenship" award nobody respects. Called a narc all year.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'reputation', value: -20 },
@@ -542,8 +484,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your anonymous tip leads to a full investigation. Turns out the "cool kids" were selling oregano. Everyone involved is embarrassed. You keep your secret.',
+            description: 'Your tip reveals they were selling oregano. Everyone\'s embarrassed.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'reputation', value: 5 },
@@ -559,12 +500,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 6. Failing a class
   {
     id: 'hs_failing_class',
     title: 'The Red Letter Grade',
-    description:
-      'Your report card arrives and there\'s a grade on it that your parents will need therapy to process. You\'re failing a class so badly that even the curve can\'t save you. The teacher wrote "see me" in red ink three times.',
+    description: 'You\'re failing a class so badly even the curve can\'t save you.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -576,12 +515,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'study_hard',
         text: 'Actually try for once',
-        hint: 'Novel concept',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You lock yourself in your room with a textbook and energy drinks. After a week of actual effort, you pull your grade up to a C-minus. Your teacher is so shocked she checks for a body double.',
+            description: 'You lock yourself in with a textbook. Pull it up to a C-minus. Teacher checks for a body double.',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -590,8 +527,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You study for 48 hours straight, learn nothing, and fall asleep during the makeup exam. You dream about quadratic equations. You still fail, but in a more educated way.',
+            description: 'You study 48 hours straight, fall asleep during the makeup exam. Still fail, but in an educated way.',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -602,13 +538,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'accept_failure',
-        text: 'Accept your fate gracefully',
-        hint: 'F stands for "free time"',
+        text: 'Accept your fate',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You fail the class and have to take summer school, which is basically school but hotter and sadder. You meet other failures and form a support group.',
+            description: 'Summer school. Hotter and sadder than regular school.',
             effects: [
               { type: 'stat', target: 'smarts', value: -5 },
               { type: 'stat', target: 'happiness', value: -20 },
@@ -617,8 +551,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You fail but your parents\' disappointment unlocks a rebellious energy in you. You channel it into something actually productive and start reading for fun. Plot twist.',
+            description: 'Your parents\' disappointment unlocks rebellious energy. You start reading for fun.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -629,13 +562,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'beg_teacher',
-        text: 'Beg the teacher for extra credit',
-        hint: 'Bring tissues',
+        text: 'Beg for extra credit',
         outcomes: [
           {
             weight: 5,
-            description:
-              'The teacher takes pity on you and assigns a 30-page essay on "personal responsibility." You write 31 pages. She gives you a D-minus. It feels like winning the lottery.',
+            description: 'She assigns a 30-page essay. You write 31. D-minus feels like winning the lottery.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -643,8 +574,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'The teacher says "I don\'t do extra credit" with the dead eyes of someone who has crushed a thousand similar requests. You are not special.',
+            description: '"I don\'t do extra credit." Dead eyes. You are not special.',
             effects: [
               { type: 'stat', target: 'smarts', value: -3 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -660,12 +590,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 6,
   },
 
-  // 7. Making the honor roll
   {
     id: 'hs_honor_roll',
     title: 'Nerd Alert',
-    description:
-      'Against all odds — including your own expectations — your name appears on the honor roll. Your parents are so proud they threaten to put a bumper sticker on the car.',
+    description: 'Your name appears on the honor roll. Your parents threaten a bumper sticker.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -676,13 +604,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'celebrate',
-        text: 'Celebrate and ride the wave',
-        hint: 'Let everyone know',
+        text: 'Celebrate publicly',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You post about it on social media and get twelve likes (eleven are from relatives). But the validation is real and your confidence soars. You start answering questions in class without fear.',
+            description: 'You post about it. Twelve likes (eleven relatives). Confidence soars.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -691,8 +617,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Your celebration is cut short when the school realizes there was a grading error. You were one point away. They let you keep the certificate out of pity.',
+            description: 'Grading error. You were one point away. They let you keep the certificate.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'stat', target: 'smarts', value: 2 },
@@ -702,13 +627,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'stay_humble',
-        text: 'Stay humble about it',
-        hint: 'Quiet confidence',
+        text: 'Stay humble',
         outcomes: [
           {
             weight: 8,
-            description:
-              'You play it cool and people respect you more for it. Teachers start treating you like a human being instead of a test score. This is what maturity feels like.',
+            description: 'People respect the quiet confidence. Teachers treat you like a human.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -717,8 +640,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You\'re so humble about it that nobody even notices. Your mom finds out from the school newsletter and is offended you didn\'t tell her.',
+            description: 'Nobody notices. Your mom finds out from the school newsletter and is offended.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -734,12 +656,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 8. School sports tryouts
   {
     id: 'hs_sports_tryouts',
     title: 'Tryout Day',
-    description:
-      'The school is holding tryouts for the sports team. The coach is a former semi-pro athlete who treats high school sports like the Olympics. He has a whistle and he is not afraid to use it.',
+    description: 'Sports tryouts. The coach treats high school like the Olympics.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -750,12 +670,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'try_out',
         text: 'Go for it',
-        hint: 'Prepare to sweat',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You make the team! The coach says you have "raw potential," which is coach-speak for "you\'re terrible but tall." You spend the season on the bench building character.',
+            description: 'You make the team! Coach says you have "raw potential." You ride the bench all season.',
             effects: [
               { type: 'stat', target: 'health', value: 15 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -766,8 +684,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You don\'t make the team. The coach lets you down easy by saying "maybe try chess club." You consider it. Chess club is apparently cutthroat.',
+            description: 'You don\'t make it. Coach suggests chess club. Chess club is apparently cutthroat.',
             effects: [
               { type: 'stat', target: 'health', value: 5 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -775,8 +692,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You make the team AND become a starter by the end of the season. The local paper writes an article about you. Your headline: "Local Teen Surprisingly Not Terrible."',
+            description: 'You make the team AND become a starter. Local paper: "Local Teen Surprisingly Not Terrible."',
             effects: [
               { type: 'stat', target: 'health', value: 20 },
               { type: 'stat', target: 'happiness', value: 25 },
@@ -789,13 +705,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'skip',
-        text: 'Sports are not your thing',
-        hint: 'Self-awareness is a skill too',
+        text: 'Sports aren\'t your thing',
         outcomes: [
           {
             weight: 10,
-            description:
-              'You watch tryouts from the bleachers eating a bag of chips. You feel at peace with your choices. The team goes 2-10 that season. You made the right call.',
+            description: 'You watch from the bleachers eating chips. Team goes 2-10. Good call.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
             ],
@@ -804,13 +718,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'manager',
-        text: 'Become the team manager instead',
-        hint: 'All the vibes, none of the cardio',
+        text: 'Become team manager instead',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You become team manager, which means you carry equipment and fill water bottles. But you\'re technically "on the team" and you get a letterman jacket. The system has been gamed.',
+            description: 'You carry equipment and fill water bottles. But you get a letterman jacket.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -819,8 +731,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Being team manager is 90% picking up towels and 10% being yelled at by the coach. You develop excellent organizational skills and a hatred of whistles.',
+            description: '90% picking up towels, 10% being yelled at. You develop a hatred of whistles.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -837,12 +748,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 9. Drama club / band / debate team
   {
     id: 'hs_extracurricular',
-    title: 'Join a Club (They\'re Desperate)',
-    description:
-      'The school\'s extracurricular fair is happening in the gym. Three clubs are aggressively recruiting. The drama kids are performing scenes at passersby. The band kids are honking. The debate team is arguing about whether this is effective recruitment.',
+    title: 'Join a Club',
+    description: 'Extracurricular fair. Every club is competing for your soul.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -852,13 +761,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'drama',
-        text: 'Join the drama club',
-        hint: 'Life is a stage, apparently',
+        text: 'Join drama club',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You join drama and get cast as "Tree #3" in the spring musical. But your tree performance is so moving that the audience cries. You\'ve found your people (they\'re all weird).',
+            description: 'Cast as Tree #3. Your tree performance makes the audience cry. You\'ve found your people.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'looks', value: 3 },
@@ -868,8 +775,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Drama club is 80% drama about who gets the lead and 20% actual drama. You get caught in a love triangle between the director, the lead actress, and a prop sword.',
+            description: '80% drama about who gets the lead, 20% actual drama.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'looks', value: 3 },
@@ -881,12 +787,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'band',
         text: 'Join the band',
-        hint: 'This one time, at band camp...',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You pick up an instrument and discover you have actual talent. The band director weeps. You march in the homecoming parade and only hit two people with your trombone slide.',
+            description: 'You have actual talent. Only hit two people with your trombone at homecoming.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -896,8 +800,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You are assigned the triangle. You spend every rehearsal waiting for your one note. When it finally comes, you miss it. The band director stares at you like you just ruined Beethoven.',
+            description: 'Assigned the triangle. You miss your one note. Band director stares.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -908,13 +811,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'debate',
-        text: 'Join the debate team',
-        hint: 'Weaponize your opinions',
+        text: 'Join debate team',
         outcomes: [
           {
             weight: 5,
-            description:
-              'Turns out you\'re a natural arguer (your parents could have told them that). You win your first tournament and develop the ability to make anyone question their own reality.',
+            description: 'Natural arguer. You win your first tournament.',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -924,8 +825,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You lose your first debate to a kid who cries on command. You learn that logic is no match for tears. This lesson will serve you well in adult relationships.',
+            description: 'You lose to a kid who cries on command. Logic is no match for tears.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -5 },
@@ -941,12 +841,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 10. Cafeteria food poisoning
   {
     id: 'hs_food_poisoning',
-    title: 'Mystery Meat Strikes Back',
-    description:
-      'The cafeteria served something called "protein medley" today. It was gray. You ate it anyway because you forgot your lunch and you\'re a teenager with no survival instincts. Your stomach begins making sounds that aren\'t in any known language.',
+    title: 'Mystery Meat',
+    description: 'You ate the cafeteria\'s gray "protein medley." Bad idea.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -956,13 +854,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'nurse',
-        text: 'Go to the school nurse',
-        hint: 'She has ice packs and vibes',
+        text: 'Go to the nurse',
         outcomes: [
           {
             weight: 6,
-            description:
-              'The nurse gives you a sleeve of crackers and lets you lie down for an hour. You miss math class. Net positive.',
+            description: 'Crackers and an hour lying down. You miss math. Net positive.',
             effects: [
               { type: 'stat', target: 'health', value: -5 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -970,8 +866,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'The nurse takes one look at you and calls your parents. You go home and spend 48 hours in the bathroom. You develop a lifelong suspicion of cafeteria food.',
+            description: 'Sent home. 48 hours in the bathroom. Lifelong cafeteria trust issues.',
             effects: [
               { type: 'stat', target: 'health', value: -15 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -982,13 +877,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'power_through',
-        text: 'Power through it like a champion',
-        hint: 'Your intestines disagree',
+        text: 'Power through it',
         outcomes: [
           {
             weight: 3,
-            description:
-              'Your iron stomach prevails. While classmates drop around you, you stand strong. The lunch lady gives you a knowing nod. You have earned her respect.',
+            description: 'Iron stomach prevails. The lunch lady nods with respect.',
             effects: [
               { type: 'stat', target: 'health', value: -3 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -997,8 +890,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'You do not, in fact, power through it. The incident occurs during English class. It becomes your nickname for the rest of high school. Let\'s not get into details.',
+            description: 'The incident occurs during English class. It becomes your nickname for years.',
             effects: [
               { type: 'stat', target: 'health', value: -20 },
               { type: 'stat', target: 'happiness', value: -25 },
@@ -1015,12 +907,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 12,
   },
 
-  // 11. Teacher catches you on your phone
   {
     id: 'hs_phone_caught',
-    title: 'Busted: Phone Edition',
-    description:
-      'You\'re watching a video under your desk with the confidence of someone who has never been caught doing anything. Your teacher is standing directly behind you. She has been there for two minutes.',
+    title: 'Phone Busted',
+    description: 'You\'re on your phone under your desk. Teacher is right behind you.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -1030,13 +920,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'hand_over',
-        text: 'Surrender the phone peacefully',
-        hint: 'Geneva convention compliant',
+        text: 'Surrender the phone',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You hand over the phone with the dignity of a fallen warrior. You spend the rest of class staring at the wall discovering that you have no thoughts without a screen in front of you.',
+            description: 'You hand it over. Without a screen, you discover you have no thoughts.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1044,8 +932,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'You hand it over but forgot to close your tabs. The teacher sees your search history. Nothing illegal, but your googling of "do fish have feelings" raises some questions.',
+            description: 'You forgot to close your tabs. She sees your "do fish have feelings" search.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'reputation', value: -5 },
@@ -1055,13 +942,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'hide_quick',
-        text: 'Lightning-speed pocket maneuver',
-        hint: 'Reflexes of a caffeinated cat',
+        text: 'Lightning-speed pocket move',
         outcomes: [
           {
             weight: 3,
-            description:
-              'Your hand moves faster than the eye can follow. The phone vanishes. The teacher questions reality. You stare at her with the innocent eyes of someone who has never owned technology.',
+            description: 'The phone vanishes. The teacher questions reality.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'reputation', value: 5 },
@@ -1069,8 +954,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'In your panic, you yeet the phone across the room. It hits the whiteboard. The screen cracks. The video is still playing. Everyone knows you watch cooking tutorials now.',
+            description: 'You yeet the phone across the room. Screen cracks. Video still playing.',
             effects: [
               { type: 'stat', target: 'happiness', value: -20 },
               { type: 'money', value: -200 },
@@ -1081,13 +965,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'educational',
-        text: '"I was using it for educational purposes"',
-        hint: 'Has never worked in human history',
+        text: '"Educational purposes"',
         outcomes: [
           {
             weight: 2,
-            description:
-              'The teacher pauses. You were actually on a Wikipedia rabbit hole about the Byzantine Empire. She\'s impressed. She lets you keep the phone. The system works sometimes.',
+            description: 'You were actually on a Byzantine Empire Wikipedia hole. She\'s impressed.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -1095,8 +977,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 8,
-            description:
-              '"Educational?" she says, turning the phone around to reveal a compilation of cats falling off things. The class laughs. At least you have good taste.',
+            description: 'She turns the phone around: cats falling off things. The class laughs.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'reputation', value: -5 },
@@ -1112,12 +993,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 6,
   },
 
-  // 12. Graduation day
   {
     id: 'hs_graduation',
-    title: 'Caps and Gowns and Existential Dread',
-    description:
-      'You did it. You survived high school. The valedictorian gives a speech about "new beginnings" while you try to figure out how the tassel works. Your family is somewhere in the crowd holding embarrassing signs.',
+    title: 'Graduation Day',
+    description: 'You survived high school. Graduation day.',
     conditions: [
       { type: 'minAge', value: 17 },
       { type: 'maxAge', value: 18 },
@@ -1129,12 +1008,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'celebrate',
         text: 'Throw your cap with joy',
-        hint: 'It hits someone',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You throw your cap so high it doesn\'t come back. You cry. Your parents cry. The kid next to you cries because your cap hit him in the eye. It\'s a beautiful moment.',
+            description: 'Cap flies high. Everyone cries. It hits someone in the eye. Beautiful moment.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'reputation', value: 10 },
@@ -1143,8 +1020,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'You walk across the stage and trip on your gown. The entire graduating class witnesses it. The photo goes viral. Your legacy is cemented forever in the worst way.',
+            description: 'You trip on your gown walking across the stage. The photo goes viral.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'looks', value: -3 },
@@ -1157,12 +1033,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'emotional',
         text: 'Take it all in quietly',
-        hint: 'Reflect on the journey',
         outcomes: [
           {
             weight: 8,
-            description:
-              'You sit quietly and reflect on four years of homework you didn\'t do, friends you made, and cafeteria food you survived. A single tear falls. You\'re proud of yourself. You should be.',
+            description: 'You reflect on four years of survival. A single tear falls. You\'re proud.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1171,8 +1045,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You realize you peaked in high school. Everything from here is slightly downhill. But hey, at least you have a diploma and an above-average collection of participation trophies.',
+            description: 'You realize you might have peaked. At least you have a diploma.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'education', value: 'highSchool' },
@@ -1189,12 +1062,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 5,
   },
 
-  // 13. Senior prank
   {
     id: 'hs_senior_prank',
-    title: 'Senior Prank Season',
-    description:
-      'It\'s senior year and the class is planning the annual prank. Last year they put a car on the roof (nobody knows how). This year, someone suggests "something with geese." You\'re invited to participate.',
+    title: 'Senior Prank',
+    description: 'Senior year. The class is planning a prank involving geese. You\'re invited.',
     conditions: [
       { type: 'minAge', value: 17 },
       { type: 'maxAge', value: 18 },
@@ -1205,12 +1076,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'join_prank',
         text: 'Join the prank squad',
-        hint: 'This will be on your permanent record',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You help release three geese labeled #1, #3, and #4 into the school. The administration spends the entire day looking for goose #2. There is no goose #2. Legendary.',
+            description: 'You release geese labeled #1, #3, #4. They search all day for #2. There is no #2.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'reputation', value: 15 },
@@ -1219,8 +1088,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'The geese go rogue. One chases the vice principal into the parking lot. Another nests in the computer lab. School is cancelled. You are a hero to students and a villain to faculty.',
+            description: 'The geese go rogue. One chases the VP into the parking lot. School cancelled.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'reputation', value: -10 },
@@ -1229,8 +1097,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You get caught on camera. The principal threatens to withhold your diploma. Your parents are called. Your mom says, "I\'m not angry, I\'m disappointed," which is objectively worse.',
+            description: 'Caught on camera. They threaten to withhold your diploma.',
             effects: [
               { type: 'stat', target: 'happiness', value: -20 },
               { type: 'reputation', value: -20 },
@@ -1240,13 +1107,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'mastermind',
-        text: 'Plan your own, better prank',
-        hint: 'Go big or go home',
+        text: 'Plan your own better prank',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You organize a flash mob of 200 students who simultaneously open their textbooks in the hallway. The teachers don\'t know whether to be proud or terrified. Best prank in school history.',
+            description: 'Flash mob of 200 students opening textbooks simultaneously. Best prank ever.',
             effects: [
               { type: 'stat', target: 'happiness', value: 30 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -1255,8 +1120,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'Your prank involves 500 rubber ducks in the swimming pool. It takes 3 days to remove them all. You\'re banned from the pool forever, but you can die knowing you committed to a bit.',
+            description: '500 rubber ducks in the pool. Takes 3 days to remove. Banned from pool forever.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'money', value: -100 },
@@ -1268,12 +1132,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'sit_out',
         text: 'Stay out of it',
-        hint: 'The smart play',
         outcomes: [
           {
             weight: 10,
-            description:
-              'You watch the chaos unfold from a safe distance. When the geese uprising begins, you are safely in the library. When the investigations start, nobody says your name. Intelligence: applied.',
+            description: 'You watch safely from the library. When investigations start, nobody says your name.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1289,12 +1151,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 14. Locker room incident
   {
     id: 'hs_locker_room',
-    title: 'Locker Room Chronicles',
-    description:
-      'Someone has stolen every left shoe from the locker room during gym class. Thirty kids are hopping around in one shoe each. The gym teacher is having a breakdown. Somehow, you are a suspect.',
+    title: 'Locker Room Mystery',
+    description: 'Someone stole every left shoe during gym class. Somehow, you\'re a suspect.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -1304,13 +1164,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'investigate',
-        text: 'Play detective and solve the case',
-        hint: 'Channel your inner Sherlock',
+        text: 'Play detective',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You follow the trail of single shoes to the roof, where you find them arranged in a pentagram by the weird kid who reads Nietzsche at lunch. You become the school hero. He becomes the school legend.',
+            description: 'You find the shoes on the roof arranged in a pentagram. School hero.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -1319,8 +1177,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your investigation reveals the gym teacher\'s dog got into the locker room. The dog is not sorry. You are given a "Junior Detective" sticker that you pretend to hate but secretly treasure.',
+            description: 'The gym teacher\'s dog did it. You get a "Junior Detective" sticker.',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -1332,20 +1189,17 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'ignore',
         text: 'Not your problem',
-        hint: 'Plead the fifth shoe',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You stay out of it. The shoes are never found. Every year on the anniversary, someone leaves a single shoe in front of the gym. It becomes school folklore.',
+            description: 'The shoes are never found. It becomes school folklore.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
             ],
           },
           {
             weight: 3,
-            description:
-              'Your indifference makes you look suspicious. The gym teacher eyes you for the rest of the semester. You\'ve made an enemy for no reason.',
+            description: 'Your indifference looks suspicious. The gym teacher eyes you all semester.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'reputation', value: -5 },
@@ -1361,12 +1215,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 16,
   },
 
-  // 15. School dance drama
   {
     id: 'hs_school_dance',
-    title: 'Dance Floor Disaster',
-    description:
-      'The school dance is in full swing. The gym is decorated with streamers from the dollar store and the DJ just played the same song twice. Tensions are high. Hormones are higher.',
+    title: 'School Dance',
+    description: 'Dollar-store streamers, a DJ who played the same song twice. Hormones are high.',
     conditions: [
       { type: 'minAge', value: 14 },
       { type: 'maxAge', value: 17 },
@@ -1377,12 +1229,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'dance',
         text: 'Hit the dance floor',
-        hint: 'Your moves are... unique',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You dance with the confidence of someone who has never seen themselves dance. Somehow, this energy is contagious. A circle forms around you. You peak right here, right now.',
+            description: 'A circle forms around you. You peak right here, right now.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'looks', value: 3 },
@@ -1391,8 +1241,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'You attempt a move you saw online and pull a muscle in your back. You\'re 16 and already injured from dancing. The slow song plays while you ice your spine against the bleachers.',
+            description: 'You try a move from online and pull a muscle. You\'re 16 with a back injury from dancing.',
             effects: [
               { type: 'stat', target: 'health', value: -5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -1404,12 +1253,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'wallflower',
         text: 'Guard the snack table',
-        hint: 'Someone has to protect the chips',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You spend the night eating mini pretzels and having surprisingly deep conversations with other snack table guardians. You make a friend who will last longer than any dance floor romance.',
+            description: 'Deep conversations with fellow snack guardians. You make a lasting friend.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'health', value: -3 },
@@ -1418,8 +1265,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You eat so many snacks that the chaperone asks if you\'re okay. You are not okay. You are, however, full.',
+            description: 'The chaperone asks if you\'re okay. You are not. But you are full.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'health', value: -5 },
@@ -1429,13 +1275,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'drama_instigate',
-        text: 'Request a song that will cause chaos',
-        hint: 'Social warfare via DJ booth',
+        text: 'Request a chaos song',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You request your ex\'s least favorite song. It plays. They storm out. Their friends glare at you. The DJ gives you a thumbs up. You feel powerful and terrible simultaneously.',
+            description: 'You request your ex\'s least favorite song. They storm out. The DJ gives you a thumbs up.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'reputation', value: -10 },
@@ -1443,8 +1287,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You request "Baby Shark" ironically. The DJ plays it unironically. The entire dance devolves. You have weaponized a children\'s song. The chaperones will never forgive you.',
+            description: 'You request "Baby Shark" ironically. The DJ plays it unironically. Chaos.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'reputation', value: -5 },
@@ -1460,12 +1303,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 16. College application stress
   {
     id: 'hs_college_apps',
-    title: 'The Application Industrial Complex',
-    description:
-      'College applications are due and you\'re staring at an essay prompt that says "Tell us about yourself in 500 words." You\'ve been staring for three hours. You\'ve written: "I am a person."',
+    title: 'College Applications',
+    description: 'College application essays are due.',
     conditions: [
       { type: 'minAge', value: 17 },
       { type: 'maxAge', value: 18 },
@@ -1476,12 +1317,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'pour_heart',
         text: 'Write from the heart',
-        hint: 'Your heart has typos',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You write a brutally honest essay about the time you cried in a Wendy\'s parking lot. The admissions officer is moved. You get accepted. Vulnerability: 1, Cynicism: 0.',
+            description: 'Honest essay about crying in a parking lot. The admissions officer is moved. Accepted.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 20 },
@@ -1490,8 +1329,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your heartfelt essay is good but not good enough. You get waitlisted at your dream school and accepted at your safety school, which you told everyone was "also your first choice."',
+            description: 'Waitlisted at your dream school. Accepted at your safety school.',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -1501,13 +1339,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'ai_help',
-        text: 'Get "creative help" from the internet',
-        hint: 'Plagiarism detectors exist now',
+        text: 'Get "creative help" online',
         outcomes: [
           {
             weight: 3,
-            description:
-              'You cobble together an essay that sounds suspiciously like a TED talk. Nobody notices. You get into a decent school. You feel guilty for exactly 48 hours.',
+            description: 'Nobody notices your TED-talk-sounding essay. You get into a decent school.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: -3 },
@@ -1516,8 +1352,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'The admissions office flags your essay. It has the same opening paragraph as 847 other applicants. You are rejected with a form letter that feels especially cold.',
+            description: 'Flagged. Same opening paragraph as 847 applicants. Rejected.',
             effects: [
               { type: 'stat', target: 'happiness', value: -25 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -1529,12 +1364,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'skip_college',
         text: 'Decide college isn\'t for you',
-        hint: 'Zuckerberg dropped out (you are not Zuckerberg)',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You announce you\'re not going to college. Your parents react like you announced you\'re joining a cult. But you feel free. Terrifyingly, existentially free.',
+            description: 'Parents react like you joined a cult. But you feel free.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'reputation', value: -10 },
@@ -1543,8 +1376,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You decide against college and immediately feel the weight of having no plan. You spend the next month googling "successful people who didn\'t go to college" at 3 AM.',
+            description: 'No plan. You google "successful people without degrees" at 3 AM.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1561,12 +1393,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 3,
   },
 
-  // 17. Peer pressure — shoplifting
   {
     id: 'hs_peer_pressure_shoplifting',
-    title: 'Five-Finger Discount Club',
-    description:
-      'Your friends dare you to shoplift something from the corner store. The item in question is a $2 candy bar. The risk-to-reward ratio is spectacularly bad. The store clerk looks like he was in the military.',
+    title: 'Five-Finger Discount',
+    description: 'Your friends dare you to shoplift a candy bar.',
     conditions: [
       { type: 'minAge', value: 13 },
       { type: 'maxAge', value: 17 },
@@ -1577,12 +1407,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'steal',
         text: 'Go for it',
-        hint: 'Over a candy bar',
         outcomes: [
           {
             weight: 3,
-            description:
-              'You pocket the candy bar with the stealth of a teenager who has never stolen anything. Somehow, you get away with it. The candy tastes like adrenaline and shame.',
+            description: 'You get away with it. The candy tastes like adrenaline and shame.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'reputation', value: -5 },
@@ -1591,8 +1419,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'The clerk grabs you before you even reach the door. He calls your parents. Your mom picks you up and doesn\'t say a single word the entire ride home. The silence is deafening.',
+            description: 'The clerk grabs you. Parents called. Silent car ride home.',
             effects: [
               { type: 'stat', target: 'happiness', value: -25 },
               { type: 'reputation', value: -20 },
@@ -1602,13 +1429,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'refuse',
-        text: 'No way, not over a candy bar',
-        hint: 'Principles or cowardice — either way, same result',
+        text: 'No way, not for a candy bar',
         outcomes: [
           {
             weight: 8,
-            description:
-              'You refuse and buy the candy bar like a normal person. Your friends call you "boring" for about ten seconds, then eat half your candy. Friendship is theft.',
+            description: 'You buy it like a normal person. Friends call you boring for ten seconds.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'money', value: -2 },
@@ -1617,8 +1442,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You refuse. Your friend tries it instead and gets caught. You watch from outside as his mom arrives. You feel guilty for feeling relieved. Complex emotions at 15.',
+            description: 'Your friend tries instead and gets caught. You watch his mom arrive.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1634,16 +1458,606 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 12,
   },
 
+  {
+    id: 'hs_peer_pressure_alcohol',
+    title: 'House Party',
+    description: 'House party. Red cups everywhere. Someone hands you a drink.',
+    conditions: [
+      { type: 'minAge', value: 15 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'drink',
+        text: 'Take the drink',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'One sip, lemon face, secretly pour the rest into a plant. Social survival mastered.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'reputation', value: 5 },
+            ],
+          },
+          {
+            weight: 3,
+            description: 'The room spins. You fall asleep in the bathtub. Photos will resurface at your wedding.',
+            effects: [
+              { type: 'stat', target: 'health', value: -15 },
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'reputation', value: -10 },
+            ],
+          },
+          {
+            weight: 3,
+            description: 'Cops show up. Parents called. Longest 12-minute car ride of your life.',
+            effects: [
+              { type: 'stat', target: 'health', value: -10 },
+              { type: 'stat', target: 'happiness', value: -25 },
+              { type: 'reputation', value: -15 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'decline',
+        text: 'Pass on it',
+        outcomes: [
+          {
+            weight: 7,
+            description: 'Nobody cares. You have fun sober and drive everyone home.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'health', value: 3 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+          {
+            weight: 3,
+            description: 'You stay sober and witness the chaos clearly. Lifetime of blackmail material.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'stat', target: 'smarts', value: 3 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'leave',
+        text: 'Leave the party',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'You slip out. Cool night air. Rare peace of a teen making a good decision.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'health', value: 5 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'FOMO for a week. Apparently it involved a trampoline and a neighbor\'s goat.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.15,
+    category: 'education',
+    minAge: 15,
+    maxAge: 17,
+    cooldown: 8,
+  },
+
+  {
+    id: 'hs_talent_show',
+    title: 'Talent Show',
+    description: 'Sign-ups are open. Previous acts include a Rubik\'s cube beatboxer.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'perform',
+        text: 'Sign up and perform',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Standing ovation. A teacher wipes away a tear. Three minutes of glory.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 30 },
+              { type: 'stat', target: 'looks', value: 5 },
+              { type: 'reputation', value: 20 },
+              { type: 'add_trait', value: 'confident' },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'You forget everything halfway through. You improvise. Somehow it\'s better.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'reputation', value: 5 },
+            ],
+          },
+          {
+            weight: 2,
+            description: 'So bad it loops to amazing. People think it\'s ironic. You become a meme.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'watch',
+        text: 'Watch from the audience',
+        outcomes: [
+          {
+            weight: 10,
+            description: 'Row 7 commentary with friends. The real talent was the roasts.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.15,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 12,
+  },
+
+  {
+    id: 'hs_group_project',
+    title: 'Group Project',
+    description: 'Group project with the usual cast of useless teammates.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'carry_team',
+        text: 'Do all the work yourself',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'You do everything. Everyone gets an A. The injustice fuels you.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'health', value: -5 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'You do all the work. One member takes credit during Q&A. Eye twitches.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 5 },
+              { type: 'stat', target: 'happiness', value: -20 },
+              { type: 'reputation', value: -5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'delegate',
+        text: 'Try to lead and delegate',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Two people ghost, one submits in Comic Sans. Somehow it works.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 5 },
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'reputation', value: 10 },
+              { type: 'add_trait', value: 'leader' },
+            ],
+          },
+          {
+            weight: 6,
+            description: 'Nobody listens. Group chat becomes meme channel. Due tomorrow. Nobody started.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 3 },
+              { type: 'stat', target: 'happiness', value: -15 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'do_nothing',
+        text: 'Contribute nothing',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'The overachiever carries the team. You get an A. Your soul gets an F.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'stat', target: 'smarts', value: -5 },
+              { type: 'reputation', value: -10 },
+            ],
+          },
+          {
+            weight: 5,
+            description: 'The overachiever tells the teacher. Solo project due Monday. Karma is real.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -15 },
+              { type: 'stat', target: 'smarts', value: -3 },
+              { type: 'reputation', value: -15 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.18,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 6,
+  },
+
+  {
+    id: 'hs_bathroom_pass',
+    title: 'Bathroom Pass Crisis',
+    description: 'Out of bathroom passes. 45 minutes left. Biology disagrees.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'ask_anyway',
+        text: 'Ask anyway',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'The teacher sighs and lets you go. Small victory.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'stat', target: 'health', value: 3 },
+            ],
+          },
+          {
+            weight: 5,
+            description: 'She says no and lectures about "time management" for five minutes.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -15 },
+              { type: 'stat', target: 'health', value: -5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'sneak_out',
+        text: 'Sneak out during a distraction',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Someone drops a water bottle. You\'re there and back in 90 seconds. Bathroom ninja.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'health', value: 3 },
+            ],
+          },
+          {
+            weight: 6,
+            description: 'The teacher says your name in THAT tone. You slink back.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'reputation', value: -5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'hold_it',
+        text: 'Suffer in silence',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'You hold it for 45 minutes. Sprint to the bathroom at the bell. Victory.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -5 },
+              { type: 'stat', target: 'health', value: -3 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'Can\'t focus. Miss the entire lesson. It\'s on the test.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'smarts', value: -3 },
+              { type: 'stat', target: 'health', value: -3 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.12,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 8,
+  },
+
+  {
+    id: 'hs_substitute_teacher',
+    title: 'Sub Day',
+    description: 'Substitute teacher. The class senses weakness.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'take_advantage',
+        text: 'Join the chaos',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'You give a fake name. Free period in disguise.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'stat', target: 'smarts', value: -3 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'The sub is a retired Marine. Class whipped into shape in 30 seconds.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'smarts', value: 5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'help_sub',
+        text: 'Help the sub',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'They leave a note: "this one is good." Your regular teacher is confused.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'smarts', value: 3 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'The class turns on you for being a narc. The sub doesn\'t remember your name.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'reputation', value: -10 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'zone_out',
+        text: 'Put in headphones',
+        outcomes: [
+          {
+            weight: 8,
+            description: 'One earbud, hood up. Chaos swirls around you. You are the eye of the hurricane.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+            ],
+          },
+          {
+            weight: 2,
+            description: 'This sub has done this before. Headphones confiscated.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.15,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 6,
+  },
+
+  {
+    id: 'hs_pop_quiz',
+    title: 'Pop Quiz',
+    description: 'The teacher walks in with THAT smirk. Pencils are drawn like swords.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'try_best',
+        text: 'Give it your best shot',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'You accidentally absorbed knowledge. Solid B. Your subconscious is carrying you.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 5 },
+              { type: 'stat', target: 'happiness', value: 10 },
+            ],
+          },
+          {
+            weight: 6,
+            description: 'You answer three with confidence and seven with fortune-cookie energy.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: -3 },
+              { type: 'stat', target: 'happiness', value: -10 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'creative_answers',
+        text: 'Get creative with answers',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Partial credit for "effort and entertainment value." This will never happen again.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'stat', target: 'smarts', value: 3 },
+              { type: 'reputation', value: 5 },
+            ],
+          },
+          {
+            weight: 6,
+            description: '"See me after class" in red ink thick enough to bleed through.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -5 },
+              { type: 'stat', target: 'smarts', value: -3 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'strategic_absence',
+        text: 'Suddenly feel very sick',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Convincing performance. An hour on the nurse\'s cot. Beats a quiz.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'smarts', value: -3 },
+            ],
+          },
+          {
+            weight: 6,
+            description: '"You can take it when you get back from the nurse." Checkmate.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -15 },
+              { type: 'reputation', value: -5 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.18,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 6,
+  },
+
+  {
+    id: 'hs_yearbook_photo',
+    title: 'Picture Day',
+    description: 'Picture day. One shot at an image that lasts forever.',
+    conditions: [
+      { type: 'minAge', value: 13 },
+      { type: 'maxAge', value: 17 },
+      { type: 'isEnrolled', value: true },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'try_hard',
+        text: 'Spend an hour getting ready',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'Perfect hair, perfect outfit. They catch you mid-blink. Retake costs $15.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'looks', value: -3 },
+              { type: 'money', value: -15 },
+            ],
+          },
+          {
+            weight: 5,
+            description: 'The photo is genuinely great. You look like you have your life together.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'stat', target: 'looks', value: 5 },
+              { type: 'reputation', value: 5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'dont_care',
+        text: 'Show up as you are',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'Most authentic yearbook photo in school history.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 5 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'You look terrible and you know it the moment the flash goes off.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'looks', value: -3 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'funny_face',
+        text: 'Make a ridiculous face',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'It makes it into the yearbook. Your friends can\'t stop laughing for a week.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: 20 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+          {
+            weight: 5,
+            description: 'They don\'t retake it. That\'s your permanent legacy.',
+            effects: [
+              { type: 'stat', target: 'happiness', value: -5 },
+              { type: 'reputation', value: 5 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.15,
+    category: 'education',
+    minAge: 13,
+    maxAge: 17,
+    cooldown: 8,
+  },
+
   // ============================================================
   // COLLEGE (ages 18-22)
   // ============================================================
 
-  // 18. Choosing a major
   {
     id: 'college_choose_major',
-    title: 'What Do You Want to Be When You Grow Up?',
-    description:
-      'It\'s time to declare your major. The academic advisor stares at you expectantly. You stare back. Neither of you blinks. Somewhere, your student loan balance ticks upward.',
+    title: 'Choose a Major',
+    description: 'Time to declare a major. The advisor is waiting.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 20 },
@@ -1654,13 +2068,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'stem',
-        text: 'STEM — "Where the money is"',
-        hint: 'Also where the crying is',
+        text: 'STEM',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You declare a STEM major and immediately lose all free time. Your social life dies but your future salary potential lives. You start dreaming in equations.',
+            description: 'Social life dies but future salary potential lives. You dream in equations.',
             effects: [
               { type: 'stat', target: 'smarts', value: 15 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -1670,8 +2082,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'STEM sounded great until Organic Chemistry. You survive, barely, with a GPA that can only be described as "alive." But you emerge battle-hardened.',
+            description: 'Organic Chemistry nearly kills you. GPA can only be described as "alive."',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -1682,13 +2093,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'liberal_arts',
-        text: 'Liberal Arts — "Follow your passion"',
-        hint: 'Your parents called, they\'re concerned',
+        text: 'Liberal Arts',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You study philosophy and can now explain why nothing matters in twelve different frameworks. Your parents ask "but what will you DO with that?" at every holiday for the next decade.',
+            description: 'You can explain why nothing matters in twelve frameworks. Parents ask "but what will you DO?"',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -1697,8 +2106,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Your passion for 18th-century poetry is genuine and beautiful. Your job prospects are not. But you can analyze the symbolism in your rejection letters, so that\'s something.',
+            description: 'Genuine passion for poetry. Job prospects are not.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -1709,13 +2117,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'business',
-        text: 'Business — "I want to be rich"',
-        hint: 'LinkedIn profile: activated',
+        text: 'Business',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You major in business and start using words like "synergy" and "leverage" unironically. You join three networking groups and your LinkedIn photo is professionally lit. The transformation is complete.',
+            description: 'You start using "synergy" unironically. LinkedIn profile professionally lit.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -1725,8 +2131,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Business school is just group projects where one person does all the work. You are that person. You learn more about managing incompetent teammates than actual business.',
+            description: 'Just group projects where one person does everything. You are that person.',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: -5 },
@@ -1736,13 +2141,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'undeclared',
-        text: 'Undeclared — "I\'m exploring"',
-        hint: 'Exploring your parents\' patience',
+        text: 'Undeclared',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You take classes in everything and find unexpected joy in a subject you never considered. Sometimes not knowing is the path to knowing. (Your parents do not agree with this philosophy.)',
+            description: 'You find unexpected joy in something you never considered.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -1750,8 +2153,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'Three semesters of "exploring" later, you have credits in 14 departments and a major in none. Your advisor gently suggests you "pick something before the money runs out."',
+            description: 'Three semesters, 14 departments, zero majors. Advisor says "pick before the money runs out."',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -1769,12 +2171,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 4,
   },
 
-  // 19. Wild frat/sorority party
   {
     id: 'college_party',
-    title: 'Rager at the Greek House',
-    description:
-      'Someone named Chad or Brittany (you\'re not sure which) invites you to a party at the Greek row. The bass is already shaking the windows from three blocks away. A girl in a toga is directing traffic.',
+    title: 'Greek Row Party',
+    description: 'Massive party on Greek Row tonight.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 22 },
@@ -1786,12 +2186,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'go_wild',
         text: 'Go all in',
-        hint: 'Tomorrow-you will handle the consequences',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You have the night of your life. You make friends, dance on tables, and wake up with someone\'s phone number written on your arm in Sharpie. The hangover lasts two days but the memories last forever.',
+            description: 'Night of your life. Phone number in Sharpie on your arm. Two-day hangover.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'health', value: -15 },
@@ -1801,8 +2199,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You black out and wake up on a lawn with one shoe and someone\'s goldfish in your pocket. The fish is alive. You name it Regret.',
+            description: 'You wake up on a lawn with one shoe and someone\'s goldfish in your pocket.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'health', value: -20 },
@@ -1812,8 +2209,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'Campus police show up. You escape through a window like a movie protagonist, but it\'s a first-floor window so it\'s less dramatic. You lose a shoe but keep your freedom.',
+            description: 'Campus police show up. You escape through a first-floor window.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'health', value: -10 },
@@ -1825,12 +2221,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'go_chill',
         text: 'Go but stay chill',
-        hint: 'Designated sober friend energy',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You nurse one drink all night and become everyone\'s therapist. Three strangers tell you their life stories. You help someone find their keys. You are the party\'s unsung hero.',
+            description: 'You nurse one drink and become everyone\'s therapist. Unsung hero.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'health', value: -3 },
@@ -1839,8 +2233,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Staying sober at a party is like watching a nature documentary in real time. You witness things that cannot be unseen. You go home early with fascinating stories and your dignity intact.',
+            description: 'Staying sober is like watching a nature documentary. You leave early with good stories.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1851,12 +2244,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'skip_party',
         text: 'Stay home and study',
-        hint: 'FOMO is temporary, GPA is forever',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You stay home, study, and go to bed at a reasonable hour. You feel great the next morning while everyone else looks like zombies. Your smugness is palpable and annoying.',
+            description: 'You feel great the next morning. Everyone else looks like zombies.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'health', value: 5 },
@@ -1865,8 +2256,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You stay home and try to study, but you spend the whole night watching everyone\'s stories from the party. You learn nothing and feel everything.',
+            description: 'You watch everyone\'s stories instead of studying. Learn nothing, feel everything.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
             ],
@@ -1881,12 +2271,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 6,
   },
 
-  // 20. Professor drama
   {
     id: 'college_professor_drama',
-    title: 'Tenure-Track Meltdown',
-    description:
-      'Your professor starts class by saying "I don\'t even know why I\'m here anymore" and then stares out the window for three minutes. He hasn\'t returned midterm grades. He might be going through something. He definitely smells like whiskey.',
+    title: 'Professor Meltdown',
+    description: 'Your professor is having a very public existential crisis.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 22 },
@@ -1897,13 +2285,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'report',
-        text: 'Report him to the department',
-        hint: 'Bureaucracy will handle this (slowly)',
+        text: 'Report to the department',
         outcomes: [
           {
             weight: 5,
-            description:
-              'The department "investigates" by sending a strongly worded email. The professor now knows someone complained. He gives everyone a B+ and retires mid-semester.',
+            description: 'They send a strongly worded email. He gives everyone a B+ and retires.',
             effects: [
               { type: 'stat', target: 'smarts', value: -3 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -1912,8 +2298,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'The department chair says "That\'s just how he is" and does nothing. The professor gets tenure. The system is broken and you have front-row seats.',
+            description: 'Department chair: "That\'s just how he is." He gets tenure.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -1923,13 +2308,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'befriend',
-        text: 'Try to connect with him',
-        hint: 'Office hours: enter at your own risk',
+        text: 'Connect with him',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You visit his office hours. He rants for 90 minutes about his ex-wife and the publishing industry. But then he writes you an incredible recommendation letter. Trauma bonds work in academia.',
+            description: 'He rants for 90 minutes about his ex. Then writes you an incredible recommendation.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -1938,8 +2321,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'He interprets your kindness as "someone who wants extra credit." He assigns you a 50-page reading list. You now have a mentor you didn\'t ask for and homework you don\'t want.',
+            description: 'He assigns you a 50-page reading list. Unwanted mentor and unwanted homework.',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -1949,13 +2331,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'ride_it_out',
-        text: 'Just ride out the semester',
-        hint: 'Only 13 more weeks',
+        text: 'Ride out the semester',
         outcomes: [
           {
             weight: 7,
-            description:
-              'The professor\'s crisis becomes class entertainment. He accidentally teaches you more about life than the syllabus ever could. Final exam is "write about what you learned this semester." You have so much material.',
+            description: 'His crisis becomes class entertainment. Final exam: "write about what you learned."',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -1963,8 +2343,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'He doesn\'t show up for the last three weeks. The final is cancelled. You get a "Pass." Your tuition dollars at work.',
+            description: 'He vanishes for the last three weeks. Final cancelled. You get a "Pass."',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -1980,12 +2359,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 21. All-nighter before finals
   {
     id: 'college_allnighter',
     title: 'The All-Nighter',
-    description:
-      'Finals start in 12 hours and you have studied for exactly zero of them. Your notes are a Jackson Pollock painting. Your energy drink collection could stock a gas station. This is your crucible.',
+    description: 'Finals in 12 hours. Zero studying done. Notes look like abstract art.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 22 },
@@ -1996,13 +2373,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'cram',
-        text: 'Full cram session — sleep is for the weak',
-        hint: 'Your body disagrees',
+        text: 'Full cram session',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You study for 11 hours straight and absorb a semester\'s worth of knowledge through osmosis and panic. You pass the exam with a B. You then sleep for 19 hours and miss your next exam.',
+            description: '11 hours of panic-learning. You pass with a B. Then sleep for 19 hours.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'health', value: -15 },
@@ -2011,8 +2386,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'At 4 AM, the words stop making sense. You hallucinate that your textbook is talking to you. It says "you should have started earlier." You pass out at your desk and wake up ten minutes before the exam.',
+            description: 'At 4 AM the words stop making sense. You pass out at your desk.',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'health', value: -20 },
@@ -2021,8 +2395,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'The cram session unlocks a flow state you didn\'t know you had. You ace the exam. Your professor asks if you\'ve been holding out all semester. You have.',
+            description: 'Flow state unlocked. You ace it. Professor asks if you were holding out all semester.',
             effects: [
               { type: 'stat', target: 'smarts', value: 12 },
               { type: 'stat', target: 'health', value: -10 },
@@ -2033,13 +2406,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'accept_fate',
-        text: 'Go to sleep and accept whatever happens',
-        hint: 'Chaotic neutral energy',
+        text: 'Go to sleep and accept fate',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You get eight hours of sleep and show up fresh. Turns out a rested brain remembers more than you thought. You scrape by with a C+. Sleep: the underrated study technique.',
+            description: 'Rested brain remembers more than expected. C+. Sleep: the underrated study technique.',
             effects: [
               { type: 'stat', target: 'health', value: 5 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -2048,8 +2419,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You sleep peacefully while your roommate has a breakdown. You wake up refreshed and fail the exam refreshedly. At least you\'re well-rested for your retake.',
+            description: 'You sleep peacefully and fail refreshedly.',
             effects: [
               { type: 'stat', target: 'health', value: 5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -2060,13 +2430,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'study_group',
-        text: 'Find a study group at the library',
-        hint: 'Misery loves company',
+        text: 'Find a study group',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You join a group of equally desperate students. Together, you piece together enough knowledge to survive. One person has notes, another has practice exams, and you bring snacks. Teamwork.',
+            description: 'One has notes, one has practice exams, you bring snacks. Teamwork saves everyone.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'health', value: -8 },
@@ -2076,8 +2444,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'The "study group" spends four hours complaining about the professor and two hours actually studying. You learn nothing but feel validated in your suffering.',
+            description: 'Four hours complaining about the professor. Two hours studying. Learn nothing, feel validated.',
             effects: [
               { type: 'stat', target: 'smarts', value: 2 },
               { type: 'stat', target: 'health', value: -5 },
@@ -2094,12 +2461,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 4,
   },
 
-  // 22. Roommate from hell
   {
     id: 'college_roommate_hell',
-    title: 'The Roommate Situation',
-    description:
-      'Your college roommate has crossed a line. Actually, they crossed the line months ago — they\'ve been living beyond the line. Their side of the room looks like a crime scene. They play the same song on repeat at 3 AM. They "borrowed" your shampoo and returned it empty.',
+    title: 'Roommate From Hell',
+    description: 'Your roommate plays the same song at 3 AM and returned your shampoo empty.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 22 },
@@ -2111,12 +2476,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'confront',
         text: 'Have an adult conversation',
-        hint: 'Neither of you are adults yet',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You sit them down and explain your feelings using "I" statements like the internet told you. They listen, apologize, and change their behavior. Just kidding. They put headphones on while you\'re talking.',
+            description: 'You use "I" statements. They put headphones on while you\'re talking.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -2124,8 +2487,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'Against all odds, the conversation works. You establish ground rules. They start cleaning. You develop a begrudging respect for each other. By senior year, they\'re in your wedding.',
+            description: 'It actually works. Ground rules established. By senior year, they\'re in your wedding.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2136,13 +2498,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'passive_aggressive',
-        text: 'Wage a passive-aggressive war',
-        hint: 'Post-it notes are weapons',
+        text: 'Passive-aggressive post-it war',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You leave increasingly specific Post-it notes everywhere. "Please don\'t eat my clearly labeled food." "Your alarm has been going off for 2 hours." The Cold War of dorm life.',
+            description: 'Increasingly specific notes everywhere. The Cold War of dorm life.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2151,8 +2511,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'The passive-aggressive war escalates until you\'re both leaving notes on Post-it notes. The RA intervenes and makes you both attend a "conflict resolution seminar." It\'s humiliating and effective.',
+            description: 'The RA forces you both into a conflict resolution seminar. Humiliating and effective.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -2163,12 +2522,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'request_transfer',
         text: 'Request a room transfer',
-        hint: 'The waitlist is... long',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You get transferred to a new room. Your new roommate is an exchange student who is quiet, clean, and goes to bed at 10 PM. You have found paradise.',
+            description: 'New roommate is quiet, clean, sleeps at 10 PM. Paradise found.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'health', value: 5 },
@@ -2176,8 +2533,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'The housing office says the waitlist is 200 people long. You are told to "work it out." You buy noise-canceling headphones and a mini-fridge with a lock. Adaptation complete.',
+            description: 'Waitlist is 200 long. You buy noise-canceling headphones and a fridge with a lock.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'money', value: -300 },
@@ -2193,12 +2549,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 23. Study abroad opportunity
   {
     id: 'college_study_abroad',
-    title: 'Passport to Knowledge (and Partying)',
-    description:
-      'The study abroad office is offering a semester in Europe. The brochure shows students laughing in front of ancient buildings. The fine print shows the cost. Your wanderlust battles your wallet in mortal combat.',
+    title: 'Study Abroad',
+    description: 'A semester in Europe. The brochure looks amazing. The fine print shows the cost.',
     conditions: [
       { type: 'minAge', value: 19 },
       { type: 'maxAge', value: 22 },
@@ -2210,12 +2564,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'go_abroad',
         text: 'Apply for study abroad',
-        hint: 'YOLO but in Italian',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You spend a semester abroad and it genuinely changes your life. You learn a language (poorly), eat incredible food, and develop a personality that is 60% "when I was in Europe."',
+            description: 'Life-changing. You learn a language (poorly) and become 60% "when I was in Europe."',
             effects: [
               { type: 'stat', target: 'happiness', value: 30 },
               { type: 'stat', target: 'smarts', value: 10 },
@@ -2227,8 +2579,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Study abroad is 10% studying and 90% abroad. You fail two classes but gain a European ex and an extensive knowledge of budget airlines. Your parents see the grades and cancel Christmas.',
+            description: '10% studying, 90% abroad. You fail two classes but gain a European ex.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -2241,12 +2592,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'cant_afford',
         text: 'Can\'t afford it',
-        hint: 'Google Maps will have to do',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You stay home and watch everyone\'s study abroad photos for four months. You save money and develop a rich inner world of jealousy. You promise yourself you\'ll travel later. You will.',
+            description: 'You watch everyone\'s photos for four months. Rich inner world of jealousy.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -2254,8 +2603,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You stay but use the time to take extra classes and get ahead. By the time your friends come back with their "transformative experiences," you\'re a semester closer to graduating.',
+            description: 'You take extra classes instead. A semester closer to graduating.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -2272,12 +2620,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 2,
   },
 
-  // 24. Dropping out consideration
   {
     id: 'college_dropout',
     title: 'The Dropout Daydream',
-    description:
-      'You\'re sitting in a lecture hall at 8 AM on a Monday and the professor is explaining something about supply curves. You have $47 in your bank account, $40,000 in student loans, and a powerful urge to walk out and never come back.',
+    description: '8 AM lecture, $47 in the bank, $40K in loans.',
     conditions: [
       { type: 'minAge', value: 19 },
       { type: 'maxAge', value: 22 },
@@ -2289,13 +2635,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'drop_out',
-        text: 'Drop out and figure it out',
-        hint: 'The loans remain',
+        text: 'Drop out',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You drop out and feel immediate relief, like taking off a backpack full of bricks. You get a job, start actually living, and never look back. Not everyone needs a degree. You needed freedom.',
+            description: 'Immediate relief. You get a job, start living, never look back.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -2305,8 +2649,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'You drop out and the relief lasts about two weeks. Then the reality of no degree, existing loans, and a job market that filters by "Bachelor\'s required" hits you like a freight train.',
+            description: 'Relief lasts two weeks. Then reality of no degree hits.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'stat', target: 'smarts', value: -5 },
@@ -2318,13 +2661,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'stay_push',
-        text: 'Push through — you\'re too far in to quit',
-        hint: 'Sunk cost fallacy or wisdom?',
+        text: 'Push through',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You grit your teeth and stay. It\'s miserable for a while, but by next semester you find a class that actually excites you. The light at the end of the tunnel is dim but real.',
+            description: 'Next semester you find a class that excites you. The light is dim but real.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2333,8 +2674,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You stay but your grades suffer. You\'re physically present and mentally checked out. Your GPA enters hospice care. But you will technically graduate, and sometimes "technically" is enough.',
+            description: 'Physically present, mentally gone. GPA in hospice. But technically making progress.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'smarts', value: 2 },
@@ -2346,12 +2686,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'take_break',
         text: 'Take a semester off',
-        hint: 'A strategic retreat',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You take a gap semester and work. The distance from academia gives you perspective. You come back refreshed and motivated. The break was exactly what you needed.',
+            description: 'You work, get perspective, come back refreshed. Exactly what you needed.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'health', value: 10 },
@@ -2360,8 +2698,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You take a semester off and it extends to a year. Then two. Going back gets harder every month. The gap becomes a canyon. Your textbooks gather dust and judgment.',
+            description: 'One semester off becomes two years. Going back gets harder every month.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: -8 },
@@ -2379,12 +2716,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 2,
   },
 
-  // 25. Student debt reality
   {
     id: 'college_student_debt',
-    title: 'The Numbers Don\'t Lie (But You Wish They Did)',
-    description:
-      'You open your student loan statement for the first time. The number has more digits than your phone number. Interest has been accumulating like a silent predator. You do the math on monthly payments and quietly set the letter on fire (metaphorically).',
+    title: 'Student Loan Statement',
+    description: 'You open your loan statement. The number has more digits than your phone number.',
     conditions: [
       { type: 'minAge', value: 19 },
       { type: 'maxAge', value: 22 },
@@ -2395,13 +2730,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'face_it',
-        text: 'Make a budget and face reality',
-        hint: 'Adulthood starts now',
+        text: 'Make a budget',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You create a spreadsheet and feel briefly in control of your life. The numbers are terrifying but at least they\'re organized. You start making minimum payments and eating ramen strategically.',
+            description: 'You create a spreadsheet. Terrifying but organized.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -5 },
@@ -2411,8 +2744,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You budget aggressively and find a part-time job on campus. Between classes and work, you have no free time, but your future self will thank your present self. Probably.',
+            description: 'You budget aggressively and get a campus job. No free time, but progress.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -2424,13 +2756,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'ignore',
-        text: 'Put the letter in a drawer and forget about it',
-        hint: 'Future you\'s problem',
+        text: 'Put it in a drawer',
         outcomes: [
           {
             weight: 5,
-            description:
-              'Ignorance is bliss for approximately eight months. Then the calls start. Your credit score drops faster than your GPA in freshman year. The drawer is now full of unopened envelopes.',
+            description: 'Bliss for eight months. Then the calls start. Credit score tanks.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'money', value: -2000 },
@@ -2439,8 +2769,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You ignore it so hard that you actually forget about it for a while. You live in blissful denial. The debt does not forget about you.',
+            description: 'You forget about it. The debt does not forget about you.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'money', value: -1500 },
@@ -2450,13 +2779,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'scholarship_hunt',
-        text: 'Desperately apply for scholarships',
-        hint: 'Professional begging, but academic',
+        text: 'Apply for scholarships',
         outcomes: [
           {
             weight: 4,
-            description:
-              'You apply to 47 scholarships and win one for $3,000 from an obscure foundation for "left-handed students interested in maritime history." You don\'t question it. Money is money.',
+            description: 'You win $3,000 from a foundation for "left-handed students interested in maritime history."',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2465,8 +2792,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 6,
-            description:
-              'You apply to dozens of scholarships and win exactly zero. Each rejection letter is a masterclass in polite devastation. At least you got really good at writing essays about overcoming adversity.',
+            description: 'Dozens of applications. Zero wins. At least you got good at essay writing.',
             effects: [
               { type: 'stat', target: 'happiness', value: -10 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2482,12 +2808,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 26. Campus protest / activism
   {
     id: 'college_protest',
-    title: 'The Revolution Will Be Instagrammed',
-    description:
-      'Students are protesting on the quad about something important. Signs are waving. Chants are chanting. A guy with a megaphone keeps losing his voice. Someone brought a therapy dog. It\'s unclear if the dog is protesting too.',
+    title: 'Campus Protest',
+    description: 'Students are protesting on the quad.',
     conditions: [
       { type: 'minAge', value: 18 },
       { type: 'maxAge', value: 22 },
@@ -2499,12 +2823,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'join',
         text: 'Join the protest',
-        hint: 'Bring water and comfortable shoes',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You march, chant, and hold a sign for six hours. Your feet hurt but your spirit soars. The protest actually leads to a policy change. You helped. It feels incredible.',
+            description: 'Six hours marching. The protest leads to a policy change. You helped.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'health', value: -5 },
@@ -2514,8 +2836,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'You join the protest and it gets intense. Campus police arrive. Someone throws a water bottle. You end up in the background of a news report that your grandmother sees. She calls. Repeatedly.',
+            description: 'It gets intense. You end up in the background of a news report grandma sees.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'health', value: -10 },
@@ -2524,8 +2845,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'Your passionate speech goes viral. You become the face of the movement for exactly 72 hours before the internet moves on to something else. Brief fame tastes weird.',
+            description: 'Your speech goes viral for 72 hours before the internet moves on.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'reputation', value: 20 },
@@ -2536,13 +2856,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'observe',
-        text: 'Watch from a safe distance',
-        hint: 'Document, don\'t participate',
+        text: 'Watch from a distance',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You watch from the library window, forming nuanced opinions about everything while committing to nothing. Peak college experience.',
+            description: 'Library window, nuanced opinions, committing to nothing. Peak college.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -2550,8 +2868,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'You watch and feel guilty for not participating. You post a supportive message online to compensate. Three people like it. Activism: completed.',
+            description: 'You feel guilty and post a supportive message online. Three likes.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -2561,13 +2878,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'pet_dog',
-        text: 'Skip the protest, pet the therapy dog',
-        hint: 'Priorities',
+        text: 'Skip the protest, pet the dog',
         outcomes: [
           {
             weight: 10,
-            description:
-              'You pet the dog for forty-five minutes. The dog doesn\'t care about your political views. The dog loves you unconditionally. This is the most productive thing you\'ve done all semester.',
+            description: '45 minutes of unconditional love. Most productive thing all semester.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'health', value: 5 },
@@ -2583,12 +2898,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     cooldown: 8,
   },
 
-  // 27. Internship opportunity
   {
     id: 'college_internship',
-    title: 'Unpaid Experience (Priceless, Literally)',
-    description:
-      'A company is offering internships to students. The posting says "competitive compensation" which means either minimum wage or "exposure." Your career counselor says this is a "great opportunity." Your landlord says rent is still due.',
+    title: 'Internship Opportunity',
+    description: 'A company offers "competitive compensation" — either minimum wage or "exposure."',
     conditions: [
       { type: 'minAge', value: 19 },
       { type: 'maxAge', value: 22 },
@@ -2599,13 +2912,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'take_internship',
-        text: 'Apply and take the internship',
-        hint: 'Resume padding: engaged',
+        text: 'Take the internship',
         outcomes: [
           {
             weight: 5,
-            description:
-              'The internship is basically fetching coffee and making copies, but you network your way into a real project. Your supervisor writes a glowing reference. Your resume now has a shiny bullet point.',
+            description: 'Coffee-fetching leads to a real project. Supervisor writes a glowing reference.',
             effects: [
               { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 10 },
@@ -2615,8 +2926,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'The internship is unpaid and the commute costs more than your food budget. You learn how to operate a fax machine and attend meetings that could have been emails. Welcome to corporate America.',
+            description: 'Unpaid. You learn to operate a fax machine and attend meetings that could be emails.',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -10 },
@@ -2626,8 +2936,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'The internship leads to a full-time job offer before you even graduate. You\'re one of the few people who gets to say "the system worked for me." Your peers quietly seethe.',
+            description: 'It leads to a full-time job offer before graduation. The system worked.',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: 25 },
@@ -2639,13 +2948,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'skip_intern',
-        text: 'Skip it — your time is worth more',
-        hint: 'Bold claim for someone with no experience',
+        text: 'Skip it',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You use the summer to work a paying job instead. More money now, less resume later. A trade-off you\'ll either appreciate or regret, depending on how the next few years go.',
+            description: 'You work a paying job instead. More money now, less resume later.',
             effects: [
               { type: 'money', value: 3000 },
               { type: 'stat', target: 'happiness', value: 5 },
@@ -2653,8 +2960,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You skip the internship and spend the summer gaming and sleeping until 2 PM. It\'s glorious. When fall comes and everyone talks about their "incredible internship experiences," you talk about your K/D ratio.',
+            description: 'Summer of gaming and sleeping till 2 PM. Glorious. Resume-destroying.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'health', value: -5 },
@@ -2672,12 +2978,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 2,
   },
 
-  // 28. Thesis/dissertation crisis
   {
     id: 'college_thesis_crisis',
-    title: 'Thesis of Doom',
-    description:
-      'Your thesis is due in two weeks and you have a title page, a bibliography of sources you haven\'t read, and 47 browser tabs open. Your advisor sent an email asking "How\'s the thesis coming?" three days ago. You have not responded.',
+    title: 'Thesis Crisis',
+    description: 'Thesis due in two weeks. You have a title page and 47 browser tabs.',
     conditions: [
       { type: 'minAge', value: 20 },
       { type: 'maxAge', value: 22 },
@@ -2688,13 +2992,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'grind',
-        text: 'Lock in and write the whole thing',
-        hint: '20 pages in 14 days',
+        text: 'Lock in and write it',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You become a writing machine fueled by panic and caffeine. The thesis is done with hours to spare. Your advisor says it\'s "surprisingly competent." You\'ve never felt so backhanded and proud.',
+            description: 'Panic and caffeine fuel a writing machine. Advisor says it\'s "surprisingly competent."',
             effects: [
               { type: 'stat', target: 'smarts', value: 10 },
               { type: 'stat', target: 'happiness', value: 15 },
@@ -2703,8 +3005,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You write 18 pages of increasingly unhinged arguments at 4 AM. Page 12 contains a paragraph that is just the word "however" repeated. Your advisor requests "significant revisions."',
+            description: 'Page 12 is just the word "however" repeated. Advisor requests "significant revisions."',
             effects: [
               { type: 'stat', target: 'smarts', value: 5 },
               { type: 'stat', target: 'happiness', value: -15 },
@@ -2716,12 +3017,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       {
         id: 'beg_extension',
         text: 'Beg for an extension',
-        hint: 'Invent a family emergency (don\'t)',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You send a very professional email explaining your situation. Your advisor, who has seen this a thousand times, grants two extra weeks with the exhausted compassion of someone who chose academia anyway.',
+            description: 'Two extra weeks granted with exhausted compassion.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -2730,8 +3029,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'Your advisor says "no extensions, this was in the syllabus since September." The syllabus. The ancient scroll you lost in week one. You now have 14 days and a grudge.',
+            description: '"No extensions, it was in the syllabus." The syllabus you lost in week one.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'health', value: -5 },
@@ -2741,13 +3039,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'pivot_topic',
-        text: 'Scrap everything and start over with a new topic',
-        hint: 'Insanity or genius?',
+        text: 'Scrap everything and start over',
         outcomes: [
           {
             weight: 3,
-            description:
-              'You pivot to a topic you actually care about and the words flow like water. You finish in a week. Your advisor is confused but impressed. Sometimes panic breeds brilliance.',
+            description: 'New topic you actually care about. Words flow. Done in a week.',
             effects: [
               { type: 'stat', target: 'smarts', value: 12 },
               { type: 'stat', target: 'happiness', value: 20 },
@@ -2756,8 +3052,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 7,
-            description:
-              'You start over and quickly realize why nobody writes about this topic — there are no sources. You now have two unfinished theses, one week left, and the hollow stare of a person who has made a terrible decision.',
+            description: 'No sources exist for the new topic. Two unfinished theses. One week left.',
             effects: [
               { type: 'stat', target: 'smarts', value: 3 },
               { type: 'stat', target: 'happiness', value: -25 },
@@ -2774,12 +3069,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 29. College graduation
   {
     id: 'college_graduation',
-    title: 'The Expensive Piece of Paper',
-    description:
-      'You\'re wearing a cap and gown that cost $80 to rent. The commencement speaker is a billionaire telling you to "follow your dreams." Your student loans are $60,000. The irony is not lost on you. But you did it. You actually did it.',
+    title: 'College Graduation',
+    description: 'Cap and gown. A billionaire tells you to "follow your dreams."',
     conditions: [
       { type: 'minAge', value: 21 },
       { type: 'maxAge', value: 23 },
@@ -2790,13 +3083,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'celebrate_big',
-        text: 'Celebrate like you earned it (you did)',
-        hint: 'One last party before reality hits',
+        text: 'Celebrate like you earned it',
         outcomes: [
           {
             weight: 7,
-            description:
-              'You throw your cap, hug everyone you can reach, and ugly cry in the parking lot. Your family takes 400 photos. You feel accomplished, terrified, and free. A degree! In this economy! Well done.',
+            description: 'Cap throw, family photos, ugly cry in the parking lot. A degree! Well done.',
             effects: [
               { type: 'stat', target: 'happiness', value: 30 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2807,8 +3098,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'The celebration is great until your aunt asks "so what are you going to DO with that degree?" at dinner. You don\'t have an answer. The diploma suddenly feels very heavy.',
+            description: 'Great until your aunt asks "so what will you DO with that degree?"',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2820,13 +3110,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'quiet_pride',
-        text: 'Take it in quietly — you know what this cost',
-        hint: 'Literally and figuratively',
+        text: 'Take it in quietly',
         outcomes: [
           {
             weight: 8,
-            description:
-              'You sit quietly and think about every all-nighter, every terrible roommate, every ramen dinner, and every moment you almost quit. You didn\'t quit. That means something. Your parents are in the stands crying. So are you.',
+            description: 'Every all-nighter, every ramen dinner, every almost-quit moment. You didn\'t quit.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2836,8 +3124,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 2,
-            description:
-              'You\'re calm until they call your name. Then it hits you all at once. You walk across the stage with tears streaming down your face and trip on absolutely nothing. Classic you.',
+            description: 'Calm until they call your name. Then tears and a trip on nothing.',
             effects: [
               { type: 'stat', target: 'happiness', value: 20 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -2855,687 +3142,10 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     priority: 5,
   },
 
-  // 30. Peer pressure — alcohol
-  {
-    id: 'hs_peer_pressure_alcohol',
-    title: 'House Party Initiation',
-    description:
-      'Someone\'s parents are out of town and a house party materializes as if summoned by ancient teen ritual. Red cups are everywhere. Someone hands you a drink that smells like gasoline mixed with fruit punch. "Just try it," they say.',
-    conditions: [
-      { type: 'minAge', value: 15 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'drink',
-        text: 'Take the drink',
-        hint: 'Your liver is not ready',
-        outcomes: [
-          {
-            weight: 4,
-            description:
-              'You take one sip, make a face like you ate a lemon, and pretend to drink the rest while secretly pouring it into a plant. Social survival: mastered.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'reputation', value: 5 },
-            ],
-          },
-          {
-            weight: 3,
-            description:
-              'You drink it and the room starts spinning. You tell three people you love them, try to pet a cat that isn\'t there, and fall asleep in the bathtub. Your friends take photos. These will resurface at your wedding.',
-            effects: [
-              { type: 'stat', target: 'health', value: -15 },
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'reputation', value: -10 },
-            ],
-          },
-          {
-            weight: 3,
-            description:
-              'The cops show up. Underage drinking. Your parents are called. The car ride home is the longest 12 minutes of your life. You are grounded until college.',
-            effects: [
-              { type: 'stat', target: 'health', value: -10 },
-              { type: 'stat', target: 'happiness', value: -25 },
-              { type: 'reputation', value: -15 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'decline',
-        text: 'Pass on the mystery liquid',
-        hint: 'Self-preservation instinct: active',
-        outcomes: [
-          {
-            weight: 7,
-            description:
-              'You decline and nobody cares. Turns out peer pressure is mostly in your head. You hang out, have fun sober, and drive everyone home. You are the hero nobody thanks.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'health', value: 3 },
-              { type: 'reputation', value: 10 },
-            ],
-          },
-          {
-            weight: 3,
-            description:
-              'You stay sober and witness the chaos with crystal clarity. Someone breaks a vase. Someone cries in the kitchen. You have enough blackmail material to last a lifetime.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'stat', target: 'smarts', value: 3 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'leave',
-        text: 'Just leave the party entirely',
-        hint: 'Irish goodbye',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You slip out the back door like a ghost. Nobody notices. You walk home in the cool night air and feel the rare peace of a teenager who made a good decision.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'health', value: 5 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You leave and get FOMO for the next week as everyone recounts "the craziest night ever." It apparently involved a trampoline, a garden hose, and the neighbor\'s goat. You\'ll never know the full story.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.15,
-    category: 'education',
-    minAge: 15,
-    maxAge: 17,
-    cooldown: 8,
-  },
-
-  // ============================================================
-  // TRADE SCHOOL / NO COLLEGE (ages 18-22)
-  // ============================================================
-
-  // 31. Learning a trade
-  {
-    id: 'trade_learn_trade',
-    title: 'Work With Your Hands (They Said)',
-    description:
-      'College isn\'t for everyone, and you\'re starting to think it\'s not for you. A local trade school is offering programs that lead to actual jobs with actual paychecks. No one at the trade school mentions "finding yourself." Refreshing.',
-    conditions: [
-      { type: 'minAge', value: 18 },
-      { type: 'maxAge', value: 22 },
-      { type: 'notEnrolled', value: true },
-      { type: 'hasEducation', value: 'highSchool' },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'enroll_electrician',
-        text: 'Train as an electrician',
-        hint: 'Shocking career choice',
-        outcomes: [
-          {
-            weight: 7,
-            description:
-              'You enroll in the electrician program and discover a talent for not electrocuting yourself. The pay is good, the work is steady, and you can fix things that college graduates have to call someone for.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 10 },
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'money', value: -2000 },
-              { type: 'reputation', value: 10 },
-              { type: 'add_trait', value: 'handy' },
-            ],
-          },
-          {
-            weight: 3,
-            description:
-              'You enroll and on day two, you shock yourself so badly your hair stands up for a week. But you push through and graduate. Every outlet you see now is a small victory.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'health', value: -5 },
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'money', value: -2000 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'enroll_plumber',
-        text: 'Train as a plumber',
-        hint: 'Someone\'s gotta do it (and they get paid well)',
-        outcomes: [
-          {
-            weight: 7,
-            description:
-              'You become a plumber and make more money than most of your friends with bachelor\'s degrees. When someone asks what you do, you say "I solve problems everyone pretends don\'t exist." Deep.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'money', value: -2000 },
-              { type: 'reputation', value: 10 },
-              { type: 'add_trait', value: 'handy' },
-            ],
-          },
-          {
-            weight: 3,
-            description:
-              'The training is harder than you expected. Pipes are confusing. Water goes where it shouldn\'t. But after six months, you can fix a toilet with your eyes closed. Power.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'money', value: -2000 },
-              { type: 'stat', target: 'health', value: -3 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'nah',
-        text: 'Not ready to commit to anything',
-        hint: 'The universe doesn\'t have a waitlist',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'You decide to "figure it out later" and get a series of temporary jobs. Each one teaches you something. None of them feel permanent. You\'re searching for something and you\'re not sure what.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -5 },
-              { type: 'money', value: 500 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'You float for a while and unexpectedly discover a passion for something you never considered. Sometimes the scenic route is the right route. Your parents have a different opinion.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'reputation', value: -5 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.25,
-    category: 'education',
-    minAge: 18,
-    maxAge: 22,
-    oneTime: true,
-    priority: 3,
-  },
-
-  // 32. Apprenticeship offer
-  {
-    id: 'trade_apprenticeship',
-    title: 'Old-School Learning',
-    description:
-      'A local tradesperson needs an apprentice. The interview consists of a firm handshake, a question about whether you\'re afraid of heights, and a long look into your soul. "Can you show up on time?" they ask. The bar is on the floor but somehow people still trip over it.',
-    conditions: [
-      { type: 'minAge', value: 18 },
-      { type: 'maxAge', value: 22 },
-      { type: 'notEnrolled', value: true },
-      { type: 'hasEducation', value: 'highSchool' },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'take_apprenticeship',
-        text: 'Take the apprenticeship',
-        hint: 'Learn by doing (and occasional bleeding)',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'Your mentor is gruff, speaks in grunts, and teaches you more in three months than four years of school could. You learn to measure twice, cut once, and never touch their tools without asking.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 10 },
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'stat', target: 'health', value: -5 },
-              { type: 'money', value: 2000 },
-              { type: 'reputation', value: 10 },
-              { type: 'add_trait', value: 'hardworking' },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'The work is backbreaking and your mentor communicates primarily through sighs of disappointment. But slowly, painfully, you get good at something real. The first thing you build that doesn\'t collapse makes you tear up.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'health', value: -10 },
-              { type: 'money', value: 1500 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'decline_apprenticeship',
-        text: 'Not interested in the manual labor life',
-        hint: 'Your back thanks you, your wallet doesn\'t',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'You politely decline. The tradesperson shrugs and says "you\'ll be back." Ominous but probably true. Plumbers make more than most managers and they know it.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -5 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'You decline and feel good about keeping your options open. Your options are currently: nothing. But they\'re OPEN and that\'s what matters.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'reputation', value: -5 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.2,
-    category: 'education',
-    minAge: 18,
-    maxAge: 22,
-    oneTime: true,
-  },
-
-  // 33. Certificate program
-  {
-    id: 'trade_certificate',
-    title: 'Certified Something-or-Other',
-    description:
-      'An online ad promises you can become a "certified professional" in just 12 weeks. The testimonials feature stock photos of suspiciously happy people. But the certificate is real and the skills are marketable. Sometimes the internet doesn\'t lie.',
-    conditions: [
-      { type: 'minAge', value: 18 },
-      { type: 'maxAge', value: 24 },
-      { type: 'notEnrolled', value: true },
-      { type: 'hasEducation', value: 'highSchool' },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'take_cert',
-        text: 'Enroll in the certificate program',
-        hint: '12 weeks to a new you',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You complete the program and actually learn useful skills. The certificate opens doors that a bare resume couldn\'t. Turns out 12 weeks of focused effort beats four years of unfocused anything.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 10 },
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'money', value: -1500 },
-              { type: 'reputation', value: 10 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'The program is harder than the ad suggested. Week 8 is basically a war crime against your free time. But you finish and add "certified" to your resume, which is at least one more adjective than before.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'money', value: -1500 },
-              { type: 'stat', target: 'health', value: -5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'self_teach',
-        text: 'Teach yourself for free online',
-        hint: 'YouTube University',
-        outcomes: [
-          {
-            weight: 4,
-            description:
-              'You spend three months watching tutorials and practicing. You learn 80% of what the certificate covers and pay nothing. Autodidact energy. Your LinkedIn profile says "self-taught" which either impresses or worries people.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'add_trait', value: 'self-taught' },
-            ],
-          },
-          {
-            weight: 6,
-            description:
-              'You start strong, watch three tutorials, then get distracted by a rabbit hole about conspiracy theories. Three months later, you know nothing about the skill but everything about birds not being real.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: -3 },
-              { type: 'stat', target: 'happiness', value: -5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'scam_check',
-        text: 'Research whether it\'s a scam first',
-        hint: 'Trust issues are sometimes valid',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'You do your research and it\'s legit. But the research took so long that the enrollment period closed. You vow to be less thorough next time. Just kidding, you won\'t.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 5 },
-              { type: 'stat', target: 'happiness', value: -5 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'Your research uncovers that this particular program is excellent. You enroll with confidence and complete it with flying colors. Due diligence pays off.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 10 },
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'money', value: -1500 },
-              { type: 'reputation', value: 10 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.2,
-    category: 'education',
-    minAge: 18,
-    maxAge: 24,
-    oneTime: true,
-  },
-
-  // ============================================================
-  // ADDITIONAL HIGH SCHOOL EVENTS
-  // ============================================================
-
-  // 34. School talent show
-  {
-    id: 'hs_talent_show',
-    title: 'Brave or Foolish? (The Talent Show)',
-    description:
-      'The school talent show is next week and sign-ups are open. Previous acts include a kid who solved a Rubik\'s cube while beatboxing and a girl who taught her hamster to run an obstacle course. The bar is simultaneously very low and impossibly high.',
-    conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'perform',
-        text: 'Sign up and perform',
-        hint: 'Stage fright is just excitement\'s evil twin',
-        outcomes: [
-          {
-            weight: 4,
-            description:
-              'Your performance is transcendent. The audience gives a standing ovation. A teacher wipes away a tear. For three minutes and forty-five seconds, you are the most important person in the school.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 30 },
-              { type: 'stat', target: 'looks', value: 5 },
-              { type: 'reputation', value: 20 },
-              { type: 'add_trait', value: 'confident' },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You forget your lines/lyrics/steps halfway through and stand in silence for what feels like seven years. Then you improvise and somehow it\'s better than the original. Chaotic talent.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'reputation', value: 5 },
-            ],
-          },
-          {
-            weight: 2,
-            description:
-              'Your act is so bad that it loops back around to amazing. People think it\'s intentionally ironic. You become a meme. You didn\'t plan this. You\'ll take it.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'reputation', value: 10 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'watch',
-        text: 'Just watch from the audience',
-        hint: 'Judging is also a talent',
-        outcomes: [
-          {
-            weight: 10,
-            description:
-              'You watch from the safety of row 7 and provide commentary to your friends. The real talent show was the roasts you made along the way.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.15,
-    category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 12,
-  },
-
-  // 35. Group project nightmare
-  {
-    id: 'hs_group_project',
-    title: 'Group Project: A Horror Story',
-    description:
-      'Your teacher announces a group project. The class collectively groans loud enough to register on the Richter scale. You\'re assigned to work with three people: one who does everything, one who does nothing, and one who does the wrong thing confidently.',
-    conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'carry_team',
-        text: 'Do all the work yourself',
-        hint: 'The eternal sacrifice of competent people',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You do the entire project alone while your groupmates contribute "moral support" and one blurry photo. You get an A. They get an A. The injustice fuels you.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 8 },
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'stat', target: 'health', value: -5 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You do all the work and your group presents it. One member takes credit during the Q&A. Your eye twitches. You learn the hardest lesson school can teach: life isn\'t fair.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 5 },
-              { type: 'stat', target: 'happiness', value: -20 },
-              { type: 'reputation', value: -5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'delegate',
-        text: 'Try to be a leader and delegate tasks',
-        hint: 'Herding cats would be easier',
-        outcomes: [
-          {
-            weight: 4,
-            description:
-              'You create a group chat, assign roles, and set deadlines. Two people ghost, one submits their part in Comic Sans, but somehow the project comes together. Leadership: unlocked.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 5 },
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'reputation', value: 10 },
-              { type: 'add_trait', value: 'leader' },
-            ],
-          },
-          {
-            weight: 6,
-            description:
-              'Nobody listens to you. The group chat becomes a meme-sharing channel. The project is due tomorrow. Nobody has started. You contemplate the nature of human cooperation.',
-            effects: [
-              { type: 'stat', target: 'smarts', value: 3 },
-              { type: 'stat', target: 'happiness', value: -15 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'do_nothing',
-        text: 'Be the one who contributes nothing',
-        hint: 'Embrace the villain arc',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'You contribute nothing and feel nothing. The overachiever carries the team. You get an A. Your soul gets an F. But it\'s high school, and souls don\'t show up on transcripts.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'stat', target: 'smarts', value: -5 },
-              { type: 'reputation', value: -10 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'The overachiever finally snaps and tells the teacher you did nothing. The teacher assigns you a solo project due Monday. Karma is real and she does not take weekends off.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -15 },
-              { type: 'stat', target: 'smarts', value: -3 },
-              { type: 'reputation', value: -15 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.18,
-    category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 6,
-  },
-
-  // 36. Bathroom pass economy
-  {
-    id: 'hs_bathroom_pass',
-    title: 'The Bathroom Pass Underground',
-    description:
-      'Your strictest teacher only allows two bathroom passes per semester. It\'s October and you\'ve already used both. Your bladder does not care about institutional policy. The class still has 45 minutes left.',
-    conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'ask_anyway',
-        text: 'Ask to go anyway and face the wrath',
-        hint: 'Biology waits for no one',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'The teacher sighs with the weight of someone who has had this conversation 10,000 times and lets you go. Small victories are still victories.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 5 },
-              { type: 'stat', target: 'health', value: 3 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'The teacher says no and launches into a five-minute speech about "time management." You cross your legs and learn nothing except the human body\'s remarkable capacity for suffering.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -15 },
-              { type: 'stat', target: 'health', value: -5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'sneak_out',
-        text: 'Wait for a distraction and slip out',
-        hint: 'Stealth mission: activated',
-        outcomes: [
-          {
-            weight: 4,
-            description:
-              'Someone drops their water bottle and you make your move. You\'re there and back in 90 seconds. The teacher never notices. You are a bathroom ninja.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'health', value: 3 },
-            ],
-          },
-          {
-            weight: 6,
-            description:
-              'You get halfway to the door before the teacher says your name in that tone. THE tone. You slink back to your seat. The class watches with pity.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'reputation', value: -5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'hold_it',
-        text: 'Suffer in silence like a warrior',
-        hint: 'This builds character (and kidney stones)',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You hold it for 45 minutes through sheer willpower. The bell rings and you sprint to the bathroom at a speed that would qualify you for the track team. Victory.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -5 },
-              { type: 'stat', target: 'health', value: -3 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You hold it and can\'t focus on anything the teacher says. You miss the entire lesson on something that turns out to be on the test. Your bladder won but your GPA lost.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'stat', target: 'smarts', value: -3 },
-              { type: 'stat', target: 'health', value: -3 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.12,
-    category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 8,
-  },
-
-  // 37. College major change crisis
   {
     id: 'college_change_major',
-    title: 'The Great Major Switcheroo',
-    description:
-      'You\'re three semesters into your major and you hate it. Every class feels like chewing glass. Your advisor says it\'s "normal" to question your path. Your bank account says each semester of "questioning" costs $15,000.',
+    title: 'Major Change Crisis',
+    description: 'Three semesters in and every class feels wrong.',
     conditions: [
       { type: 'minAge', value: 19 },
       { type: 'maxAge', value: 22 },
@@ -3546,13 +3156,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     choices: [
       {
         id: 'switch_major',
-        text: 'Switch majors and add a year',
-        hint: 'Your parents will need a moment',
+        text: 'Switch majors',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You switch to something you actually enjoy and it changes everything. Classes are interesting. You do the readings willingly. Your GPA rises from the dead. It costs an extra year and $20,000 but your will to live returns.',
+            description: 'New major changes everything. Classes are interesting. Will to live returns.',
             effects: [
               { type: 'stat', target: 'happiness', value: 25 },
               { type: 'stat', target: 'smarts', value: 8 },
@@ -3561,8 +3169,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 4,
-            description:
-              'You switch majors and the new one is somehow worse. You\'ve now wasted a year and learned that the grass is not greener — it\'s just different grass that also wants to eat your tuition.',
+            description: 'New major is somehow worse. A year wasted on different grass that also costs tuition.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'money', value: -5000 },
@@ -3572,13 +3179,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'double_down',
-        text: 'Stay the course and power through',
-        hint: 'Suffering builds character (allegedly)',
+        text: 'Stay the course',
         outcomes: [
           {
             weight: 5,
-            description:
-              'You grit your teeth and finish. It\'s not what you love, but the degree opens doors you couldn\'t open before. Sometimes "good enough" is... good enough.',
+            description: 'Not what you love, but the degree opens doors. Sometimes "good enough" is enough.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -3587,8 +3192,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 5,
-            description:
-              'You stay in the major and develop a permanent twitch during lectures. Your grades are mediocre, your passion is nonexistent, but you are technically making progress toward a degree you don\'t want.',
+            description: 'Permanent twitch during lectures. Mediocre grades. Technically making progress.',
             effects: [
               { type: 'stat', target: 'happiness', value: -15 },
               { type: 'stat', target: 'smarts', value: 3 },
@@ -3599,13 +3203,11 @@ export const SCHOOL_EVENTS: GameEvent[] = [
       },
       {
         id: 'add_minor',
-        text: 'Keep the major, add a minor you love',
-        hint: 'Best of both worlds (kind of)',
+        text: 'Add a minor you love',
         outcomes: [
           {
             weight: 7,
-            description:
-              'The minor gives you something to look forward to. Your major classes still feel like dental surgery, but three times a week you get to take a class that reminds you why learning can be fun.',
+            description: 'The minor reminds you learning can be fun. Major still hurts.',
             effects: [
               { type: 'stat', target: 'happiness', value: 15 },
               { type: 'stat', target: 'smarts', value: 8 },
@@ -3614,8 +3216,7 @@ export const SCHOOL_EVENTS: GameEvent[] = [
           },
           {
             weight: 3,
-            description:
-              'Adding a minor means more classes, less sleep, and a schedule that looks like a jigsaw puzzle. But your resume now has TWO things on it, which is twice as many as before.',
+            description: 'More classes, less sleep. But your resume now has TWO things.',
             effects: [
               { type: 'stat', target: 'happiness', value: 5 },
               { type: 'stat', target: 'smarts', value: 5 },
@@ -3633,292 +3234,267 @@ export const SCHOOL_EVENTS: GameEvent[] = [
     oneTime: true,
   },
 
-  // 38. Substitute teacher day
-  {
-    id: 'hs_substitute_teacher',
-    title: 'Sub Day',
-    description:
-      'Your regular teacher is out and a substitute walks in looking like they\'ve seen things. The class immediately senses weakness. Someone has already changed the seating chart. Another kid claims to be the teacher\'s aide. Pure anarchy looms.',
-    conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
-      { type: 'notInPrison', value: true },
-    ],
-    choices: [
-      {
-        id: 'take_advantage',
-        text: 'Join the chaos',
-        hint: 'The sub will never know',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You give the sub a fake name and spend the period doing absolutely nothing productive. The sub is too defeated to care. A free period in disguise.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'stat', target: 'smarts', value: -3 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You join the chaos and the sub turns out to be a retired Marine drill sergeant doing this "for fun." The class is whipped into shape in 30 seconds. You do more work than any regular class.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'stat', target: 'smarts', value: 5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'help_sub',
-        text: 'Feel bad for the sub and help them',
-        hint: 'Teacher\'s pet mode: engaged',
-        outcomes: [
-          {
-            weight: 6,
-            description:
-              'You help the sub navigate the chaos. They are so grateful they give you extra credit that doesn\'t actually exist. Your regular teacher is confused by the note that says "this one is good."',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'smarts', value: 3 },
-              { type: 'reputation', value: 10 },
-            ],
-          },
-          {
-            weight: 4,
-            description:
-              'You try to help but the class turns on you for being a "narc." The sub doesn\'t even remember your name. You\'ve angered both sides. Neutrality was the move.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'reputation', value: -10 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'zone_out',
-        text: 'Put in headphones and zone out',
-        hint: 'Plausible deniability',
-        outcomes: [
-          {
-            weight: 8,
-            description:
-              'You put in one earbud, pull up your hood, and enter a state of peaceful detachment. The chaos swirls around you like a hurricane around its eye. You are the eye. Zen.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 10 },
-            ],
-          },
-          {
-            weight: 2,
-            description:
-              'The sub spots your headphones and confiscates them. This sub has done this before. You spend the period in silent rage watching everyone else goof off.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-            ],
-          },
-        ],
-      },
-    ],
-    probability: 0.15,
-    category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 6,
-  },
+  // ============================================================
+  // TRADE SCHOOL / NO COLLEGE (ages 18-22)
+  // ============================================================
 
-  // 39. Pop quiz ambush
   {
-    id: 'hs_pop_quiz',
-    title: 'Surprise! You Know Nothing!',
-    description:
-      'Your teacher walks in with that smirk. The one that means a pop quiz. The classroom mood shifts instantly. Someone whispers "no" like they just watched their favorite character die. Pencils are drawn like swords.',
+    id: 'trade_learn_trade',
+    title: 'Trade School',
+    description: 'A local trade school offers practical skills and actual jobs.',
     conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
+      { type: 'minAge', value: 18 },
+      { type: 'maxAge', value: 22 },
+      { type: 'notEnrolled', value: true },
+      { type: 'hasEducation', value: 'highSchool' },
       { type: 'notInPrison', value: true },
     ],
     choices: [
       {
-        id: 'try_best',
-        text: 'Give it your best shot',
-        hint: 'Some questions look familiar... maybe',
+        id: 'enroll_electrician',
+        text: 'Train as an electrician',
         outcomes: [
           {
-            weight: 4,
-            description:
-              'Turns out you accidentally absorbed knowledge through proximity to open textbooks. You pass with a solid B. Your subconscious is carrying your academic career.',
+            weight: 7,
+            description: 'Talent for not electrocuting yourself. Good pay, steady work.',
             effects: [
-              { type: 'stat', target: 'smarts', value: 5 },
-              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'smarts', value: 10 },
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'money', value: -2000 },
+              { type: 'reputation', value: 10 },
+              { type: 'add_trait', value: 'handy' },
             ],
           },
           {
-            weight: 6,
-            description:
-              'You stare at the paper and it stares back. You answer three questions with confidence and seven with the energy of a fortune cookie. Your grade reflects both strategies.',
+            weight: 3,
+            description: 'You shock yourself on day two. Hair stands up for a week. You push through.',
             effects: [
-              { type: 'stat', target: 'smarts', value: -3 },
-              { type: 'stat', target: 'happiness', value: -10 },
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'health', value: -5 },
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'money', value: -2000 },
             ],
           },
         ],
       },
       {
-        id: 'creative_answers',
-        text: 'Get creative with your answers',
-        hint: 'Wrong, but entertaining',
+        id: 'enroll_plumber',
+        text: 'Train as a plumber',
         outcomes: [
           {
-            weight: 4,
-            description:
-              'You answer every question with such creative confidence that the teacher gives you partial credit for "effort and entertainment value." This has never happened before and will never happen again.',
+            weight: 7,
+            description: 'You make more than most friends with bachelor\'s degrees.',
             effects: [
+              { type: 'stat', target: 'smarts', value: 8 },
               { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'stat', target: 'smarts', value: 3 },
-              { type: 'reputation', value: 5 },
+              { type: 'money', value: -2000 },
+              { type: 'reputation', value: 10 },
+              { type: 'add_trait', value: 'handy' },
             ],
           },
           {
-            weight: 6,
-            description:
-              'Your creative answers are not appreciated. The teacher writes "see me after class" in red ink so thick it bleeds through the paper. Comedy is subjective.',
+            weight: 3,
+            description: 'Harder than expected. After six months you can fix a toilet with your eyes closed.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'money', value: -2000 },
+              { type: 'stat', target: 'health', value: -3 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'nah',
+        text: 'Not ready to commit',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'Series of temporary jobs. Each teaches something. None feel permanent.',
             effects: [
               { type: 'stat', target: 'happiness', value: -5 },
-              { type: 'stat', target: 'smarts', value: -3 },
+              { type: 'money', value: 500 },
             ],
           },
-        ],
-      },
-      {
-        id: 'strategic_absence',
-        text: 'Suddenly feel very sick and go to the nurse',
-        hint: 'An Oscar-worthy performance',
-        outcomes: [
           {
-            weight: 4,
-            description:
-              'Your performance is convincing. You clutch your stomach, groan authentically, and are excused. The nurse gives you a cracker and you lie on a cot for an hour. Beats a quiz.',
+            weight: 5,
+            description: 'You float and discover an unexpected passion.',
             effects: [
               { type: 'stat', target: 'happiness', value: 10 },
-              { type: 'stat', target: 'smarts', value: -3 },
-            ],
-          },
-          {
-            weight: 6,
-            description:
-              'The teacher has heard this one before. "You can take the quiz when you get back from the nurse." Checkmate. You now have to take the quiz AND explain to the nurse why you\'re not actually sick.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -15 },
               { type: 'reputation', value: -5 },
             ],
           },
         ],
       },
     ],
-    probability: 0.18,
+    probability: 0.25,
     category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 6,
+    minAge: 18,
+    maxAge: 22,
+    oneTime: true,
+    priority: 3,
   },
 
-  // 40. Yearbook photo day
   {
-    id: 'hs_yearbook_photo',
-    title: 'Picture Day: The Annual Hostage Situation',
-    description:
-      'It\'s yearbook photo day. You have one shot to create an image that will represent you for eternity (or until the yearbook ends up at a garage sale in 20 years). The photographer has taken 3,000 photos today and has lost the ability to fake enthusiasm.',
+    id: 'trade_apprenticeship',
+    title: 'Apprenticeship',
+    description: 'A local tradesperson needs an apprentice. "Can you show up on time?" they ask.',
     conditions: [
-      { type: 'minAge', value: 13 },
-      { type: 'maxAge', value: 17 },
-      { type: 'isEnrolled', value: true },
+      { type: 'minAge', value: 18 },
+      { type: 'maxAge', value: 22 },
+      { type: 'notEnrolled', value: true },
+      { type: 'hasEducation', value: 'highSchool' },
       { type: 'notInPrison', value: true },
     ],
     choices: [
       {
-        id: 'try_hard',
-        text: 'Spend an hour getting ready',
-        hint: 'Hair, outfit, practice smile',
-        outcomes: [
-          {
-            weight: 5,
-            description:
-              'You prepare meticulously. Your hair is perfect. Your outfit is fire. Then the photographer catches you mid-blink. The retake option costs $15. This is extortion.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'stat', target: 'looks', value: -3 },
-              { type: 'money', value: -15 },
-            ],
-          },
-          {
-            weight: 5,
-            description:
-              'All your preparation pays off. The photo is genuinely great. You look approachable, confident, and like someone who has their life together. The illusion is complete.',
-            effects: [
-              { type: 'stat', target: 'happiness', value: 15 },
-              { type: 'stat', target: 'looks', value: 5 },
-              { type: 'reputation', value: 5 },
-            ],
-          },
-        ],
-      },
-      {
-        id: 'dont_care',
-        text: 'Roll up looking exactly how you look',
-        hint: 'Authenticity or laziness — you decide',
+        id: 'take_apprenticeship',
+        text: 'Take the apprenticeship',
         outcomes: [
           {
             weight: 6,
-            description:
-              'You take the photo in whatever you slept in. It becomes the most authentic yearbook photo in school history. You look like a human being, not a catalog model. Some people prefer it.',
+            description: 'Gruff mentor teaches more in three months than four years of school could.',
             effects: [
-              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'stat', target: 'smarts', value: 10 },
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'stat', target: 'health', value: -5 },
+              { type: 'money', value: 2000 },
+              { type: 'reputation', value: 10 },
+              { type: 'add_trait', value: 'hardworking' },
             ],
           },
           {
             weight: 4,
-            description:
-              'You look terrible and you know it the moment the flash goes off. This photo will outlive you. In 30 years, someone will find it and say "wow, rough year."',
+            description: 'Backbreaking work. But the first thing you build that doesn\'t collapse makes you tear up.',
             effects: [
-              { type: 'stat', target: 'happiness', value: -10 },
-              { type: 'stat', target: 'looks', value: -3 },
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'stat', target: 'health', value: -10 },
+              { type: 'money', value: 1500 },
             ],
           },
         ],
       },
       {
-        id: 'funny_face',
-        text: 'Make a ridiculous face on purpose',
-        hint: 'A legacy choice',
+        id: 'decline_apprenticeship',
+        text: 'Not interested',
         outcomes: [
           {
             weight: 5,
-            description:
-              'Your cross-eyed tongue-out photo makes it into the yearbook because the editor thinks it\'s "the funniest thing they\'ve ever seen." Your parents are less amused. Your friends can\'t stop laughing for a week.',
+            description: 'They shrug: "you\'ll be back." Plumbers make more than most managers.',
             effects: [
-              { type: 'stat', target: 'happiness', value: 20 },
-              { type: 'reputation', value: 10 },
+              { type: 'stat', target: 'happiness', value: -5 },
             ],
           },
           {
             weight: 5,
-            description:
-              'The photographer doesn\'t take another photo. That\'s your yearbook picture. You thought they\'d redo it. They did not. Your funny face is now your permanent high school legacy.',
+            description: 'You keep your options open. Your options are currently: nothing.',
             effects: [
-              { type: 'stat', target: 'happiness', value: -5 },
-              { type: 'reputation', value: 5 },
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'reputation', value: -5 },
             ],
           },
         ],
       },
     ],
-    probability: 0.15,
+    probability: 0.2,
     category: 'education',
-    minAge: 13,
-    maxAge: 17,
-    cooldown: 8,
+    minAge: 18,
+    maxAge: 22,
+    oneTime: true,
   },
+
+  {
+    id: 'trade_certificate',
+    title: 'Certificate Program',
+    description: 'An online program promises certification in 12 weeks.',
+    conditions: [
+      { type: 'minAge', value: 18 },
+      { type: 'maxAge', value: 24 },
+      { type: 'notEnrolled', value: true },
+      { type: 'hasEducation', value: 'highSchool' },
+      { type: 'notInPrison', value: true },
+    ],
+    choices: [
+      {
+        id: 'take_cert',
+        text: 'Enroll in the program',
+        outcomes: [
+          {
+            weight: 6,
+            description: 'You learn useful skills. The certificate opens doors.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 10 },
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'money', value: -1500 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+          {
+            weight: 4,
+            description: 'Harder than advertised. Week 8 is brutal. But you finish.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'happiness', value: 5 },
+              { type: 'money', value: -1500 },
+              { type: 'stat', target: 'health', value: -5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'self_teach',
+        text: 'Teach yourself for free',
+        outcomes: [
+          {
+            weight: 4,
+            description: 'Three months of tutorials. You learn 80% and pay nothing.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 8 },
+              { type: 'stat', target: 'happiness', value: 10 },
+              { type: 'add_trait', value: 'self-taught' },
+            ],
+          },
+          {
+            weight: 6,
+            description: 'Three tutorials in, you\'re watching conspiracy videos. Three months wasted.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: -3 },
+              { type: 'stat', target: 'happiness', value: -5 },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'scam_check',
+        text: 'Research if it\'s a scam',
+        outcomes: [
+          {
+            weight: 5,
+            description: 'It\'s legit, but your research took so long enrollment closed.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 5 },
+              { type: 'stat', target: 'happiness', value: -5 },
+            ],
+          },
+          {
+            weight: 5,
+            description: 'Due diligence pays off. You enroll with confidence and crush it.',
+            effects: [
+              { type: 'stat', target: 'smarts', value: 10 },
+              { type: 'stat', target: 'happiness', value: 15 },
+              { type: 'money', value: -1500 },
+              { type: 'reputation', value: 10 },
+            ],
+          },
+        ],
+      },
+    ],
+    probability: 0.2,
+    category: 'education',
+    minAge: 18,
+    maxAge: 24,
+    oneTime: true,
+  },
+
 ];

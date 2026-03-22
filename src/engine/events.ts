@@ -416,15 +416,44 @@ function computeValue(current: number, amount: number, op: 'add' | 'set' | 'mult
 }
 
 // ============================================================
-// 7. processSeasonEvents
+// 7. Pity System — escalating event probability
+// ============================================================
+
+// Normal pity table (age >= 10): guaranteed by 5th dry season
+const PITY_TABLE = [0.10, 0.25, 0.50, 0.75, 1.0];
+
+// Child pity table (age < 10): slower ramp, ~1 event per 2 years
+const CHILD_PITY_TABLE = [0, 0.05, 0.05, 0.10, 0.15, 0.25, 0.40, 0.75, 1.0];
+
+function getPityChance(seasonsSinceLastEvent: number, age: number): number {
+  const table = age < 10 ? CHILD_PITY_TABLE : PITY_TABLE;
+  const idx = Math.min(seasonsSinceLastEvent, table.length - 1);
+  return table[idx];
+}
+
+/**
+ * Get events eligible by conditions only (no probability gate).
+ * Used by the pity system — the pity roll replaces per-event probability.
+ */
+function getConditionEligibleEvents(allEvents: GameEvent[], state: GameState): GameEvent[] {
+  return allEvents.filter((event) => {
+    if (event.oneTime && state.firedEventIds.includes(event.id)) {
+      return false;
+    }
+    return event.conditions.every((c) => checkCondition(c, state));
+  });
+}
+
+// ============================================================
+// 8. processSeasonEvents
 // ============================================================
 
 /**
  * Main entry point called once per season tick.
  *
- * 1. Gather eligible events
- * 2. Select one via weighted random
- * 3. Compute available choices for the UI
+ * Uses the pity system: escalating probability each season without
+ * an event. When the pity roll succeeds, selects from condition-eligible
+ * events using each event's probability as a relative weight.
  *
  * Returns null when no event fires this season.
  */
@@ -432,8 +461,25 @@ export function processSeasonEvents(
   allEvents: GameEvent[],
   state: GameState,
 ): { event: GameEvent; availableChoices: EventChoice[] } | null {
-  const eligible = getEligibleEvents(allEvents, state);
-  const event = selectEvent(eligible);
+  const pityChance = getPityChance(state.seasonsSinceLastEvent, state.character.age);
+
+  // Pity roll: should any event fire this season?
+  if (!chance(pityChance)) {
+    return null;
+  }
+
+  // Get events that pass conditions (not probability — pity replaces that)
+  const eligible = getConditionEligibleEvents(allEvents, state);
+  if (eligible.length === 0) {
+    return null;
+  }
+
+  // Use each event's probability as a relative weight for selection
+  const weighted = eligible.map((event) => ({
+    ...event,
+    weight: (event.probability ?? 0.1) * (event.priority ?? 1),
+  }));
+  const event = weightedRandom(weighted);
 
   if (!event) {
     return null;

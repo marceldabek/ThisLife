@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet, ScrollView, Alert } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, Card, Button } from '../../src/components/ui';
 import { CareerListingCard } from '../../src/components/game';
 import { useGameStore } from '../../src/store/gameStore';
@@ -17,6 +18,7 @@ import {
 } from '../../src/engine/careers';
 
 export default function CareerScreen() {
+  const insets = useSafeAreaInsets();
   const character = useGameStore((s) => s.character);
   const career = character.career;
   const modifyStat = useGameStore((s) => s.modifyStat);
@@ -136,7 +138,7 @@ export default function CareerScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.md }]}
         showsVerticalScrollIndicator={false}
       >
         {career && currentCareerDef ? (

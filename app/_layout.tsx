@@ -31,6 +31,10 @@ export default function RootLayout() {
           options={{ presentation: 'fullScreenModal' }}
         />
         <Stack.Screen
+          name="relationship/[id]"
+          options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
+        />
+        <Stack.Screen
           name="character-creation"
           options={{ presentation: 'fullScreenModal' }}
         />

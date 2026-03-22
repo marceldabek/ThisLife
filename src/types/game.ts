@@ -172,6 +172,7 @@ export interface EventLogEntry {
   choiceMade?: string;
   outcome?: string;
   effects?: Record<string, number>;
+  emoji?: string;
   timestamp: number;
 }
 
@@ -191,6 +192,7 @@ export interface Character {
   lastName: string;
   gender: Gender;
   age: number;
+  birthYear: number;
   season: Season;
   stats: Stats;
   money: number;
@@ -217,6 +219,8 @@ export interface GameState {
   settings: GameSettings;
   currentEventId: string | null;
   firedEventIds: string[];     // one-time events that already fired
+  activitiesUsedThisSeason: string[];
+  seasonsSinceLastEvent: number; // pity system counter
   gameOver: boolean;
   lifetimeEarnings: number;
 }
@@ -261,3 +265,11 @@ export const DEFAULT_EDUCATION: Education = {
   yearsCompleted: 0,
   isEnrolled: false,
 };
+
+export function getEmojiForAge(age: number, gender: Gender): string {
+  if (age <= 4) return '\u{1F476}';
+  if (age <= 12) return gender === 'male' ? '\u{1F466}' : '\u{1F467}';
+  if (age <= 17) return gender === 'male' ? '\u{1F9D1}' : '\u{1F469}';
+  if (age <= 59) return gender === 'male' ? '\u{1F468}' : '\u{1F469}';
+  return gender === 'male' ? '\u{1F474}' : '\u{1F475}';
+}

@@ -17,6 +17,7 @@ import {
   EventLogEntry,
   getNextSeason,
   getLifeStage,
+  getEmojiForAge,
 } from '../types/game';
 
 // ---- Deterministic random helpers (seeded from state for reproducibility) ----
@@ -551,12 +552,18 @@ export function performAgeUp(state: GameState): Partial<AgeUpResult> {
     }
   }
 
-  // 5. Expenses
+  // 5. Expenses (children under 18 pay no expenses)
   const expenses = computeExpenses(newAge, state.assets);
-  money -= expenses.totalExpenses;
-  // Don't go below zero — accrue debt as negative balance
-  if (expenses.totalExpenses > 0 && newAge >= 18) {
-    summaryParts.push(`Spent $${expenses.totalExpenses.toLocaleString()} on living expenses.`);
+  if (newAge >= 18) {
+    money -= expenses.totalExpenses;
+    if (expenses.totalExpenses > 0) {
+      summaryParts.push(`Spent $${expenses.totalExpenses.toLocaleString()} on living expenses.`);
+    }
+  }
+
+  // Children can't go negative
+  if (newAge < 18) {
+    money = Math.max(0, money);
   }
 
   // 6. Education progression
@@ -618,6 +625,7 @@ export function performAgeUp(state: GameState): Partial<AgeUpResult> {
     season: nextSeason,
     stats: newStats,
     money: Math.round(money),
+    emoji: getEmojiForAge(newAge, state.character.gender),
     education: eduUpdate.education,
     career: careerUpdate.career,
     inPrison: prisonUpdate.inPrison,

@@ -20,6 +20,16 @@ import {
 } from '../../src/types/events';
 import { resolveChoice, getAvailableChoices } from '../../src/engine/events';
 
+const CATEGORY_EMOJI: Record<EventCategory, string> = {
+  life: '\u{1F331}',
+  social: '\u{1F465}',
+  career: '\u{1F4BC}',
+  crime: '\u{1F6A8}',
+  health: '\u{1FA7A}',
+  relationship: '\u2764\uFE0F',
+  education: '\u{1F393}',
+};
+
 // ============================================================
 // Event Registry
 // ============================================================
@@ -348,6 +358,7 @@ export default function EventScreen() {
       season: character.season,
       title: event.title,
       description: resolvedOutcome.description,
+      emoji: CATEGORY_EMOJI[event.category] ?? '',
       choiceMade: selectedChoice.text,
       outcome: resolvedOutcome.description,
       effects: Object.keys(effectsRecord).length > 0 ? effectsRecord : undefined,

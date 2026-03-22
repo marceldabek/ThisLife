@@ -9,6 +9,7 @@ import {
   Easing,
 } from 'react-native';
 import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, Button, Card, StatBar } from '../src/components/ui';
 import { useGameStore } from '../src/store/gameStore';
 import { useAppStore } from '../src/store/settingsStore';
@@ -78,6 +79,7 @@ export default function CharacterCreationScreen() {
   const [firstNameIsRandom, setFirstNameIsRandom] = useState(false);
   const [previewStats, setPreviewStats] = useState<Stats>(generatePreviewStats);
 
+  const insets = useSafeAreaInsets();
   const newGame = useGameStore((s) => s.newGame);
   const setHasStartedGame = useAppStore((s) => s.setHasStartedGame);
 
@@ -149,12 +151,6 @@ export default function CharacterCreationScreen() {
       pulseRef.current?.stop();
     };
   }, [canStart]);
-
-  // ---- Re-randomize stats when inputs change ----
-
-  useEffect(() => {
-    setPreviewStats(generatePreviewStats());
-  }, [firstName, lastName, gender]);
 
   // ---- Gender selection with scale animation ----
 
@@ -246,7 +242,7 @@ export default function CharacterCreationScreen() {
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
     >
-      <View style={styles.container}>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
         {/* Header */}
         <Animated.View style={[styles.header, fadeSlide(titleFade)]}>
           <Text variant="largeTitle" align="center">
@@ -416,7 +412,7 @@ export default function CharacterCreationScreen() {
             />
           </Animated.View>
           <Button
-            title="\u{1F3B2}  Random Life"
+            title={"\u{1F3B2}  Random Life"}
             onPress={handleRandomLife}
             variant="ghost"
             size="large"

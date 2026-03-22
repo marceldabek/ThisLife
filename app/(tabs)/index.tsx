@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, Card, StatBar, Button } from '../../src/components/ui';
 import { SeasonBanner } from '../../src/components/game';
 import { useGameStore } from '../../src/store/gameStore';
@@ -20,6 +21,7 @@ export default function LifeScreen() {
   const relationships = useGameStore((s) => s.relationships);
   const setCurrentEvent = useGameStore((s) => s.setCurrentEvent);
   const hasStartedGame = useAppStore((s) => s.hasStartedGame);
+  const insets = useSafeAreaInsets();
 
   // Initialize event registry on mount
   useEffect(() => {
@@ -61,9 +63,13 @@ export default function LifeScreen() {
     if (allEvents.length > 0) {
       const result = processSeasonEvents(allEvents, state);
       if (result) {
-        // Set the current event and navigate to event modal
+        // Event fired — reset pity counter and navigate to event modal
+        useGameStore.setState({ seasonsSinceLastEvent: 0 });
         setCurrentEvent(result.event.id);
         router.push(`/event/${result.event.id}`);
+      } else {
+        // No event — increment pity counter
+        useGameStore.setState({ seasonsSinceLastEvent: state.seasonsSinceLastEvent + 1 });
       }
     }
   }, [gameOver, character.isAlive, ageUp, setCurrentEvent]);
@@ -95,87 +101,102 @@ export default function LifeScreen() {
     <View style={styles.container}>
       <ScrollView
         style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[styles.scrollContent, { paddingTop: insets.top + spacing.md }]}
         showsVerticalScrollIndicator={false}
       >
-        {/* Season Banner */}
-        <SeasonBanner season={character.season} age={character.age} />
-
-        {/* Character Name */}
-        <Text variant="title2" align="center">
-          {character.emoji} {character.firstName} {character.lastName}
-        </Text>
-
-        {/* Stats */}
-        <Card style={styles.statsCard}>
-          <StatBar stat="health" value={character.stats.health} />
-          <StatBar stat="happiness" value={character.stats.happiness} />
-          <StatBar stat="smarts" value={character.stats.smarts} />
-          <StatBar stat="looks" value={character.stats.looks} />
-          <View style={styles.moneyRow}>
-            <Text variant="subhead" color={colors.secondaryText}>
-              Money
-            </Text>
-            <Text variant="tabular" color={colors.money}>
-              {formatMoney(character.money)}
-            </Text>
+        {/* Top Cards Row */}
+        <View style={styles.topCardsRow}>
+          {/* Left Column: Season + Character Avatar */}
+          <View style={styles.leftColumn}>
+            <SeasonBanner season={character.season} age={character.age} year={character.birthYear + character.age} />
+            <Card style={styles.avatarCard}>
+              <Text style={styles.avatarEmoji}>{character.emoji}</Text>
+            </Card>
           </View>
-        </Card>
+
+          {/* Stats Card */}
+          <Card style={styles.statsCard}>
+            <View style={styles.nameRow}>
+              <Text variant="headline" numberOfLines={1} style={styles.nameText}>
+                {character.firstName} {character.lastName}
+              </Text>
+            </View>
+            <StatBar stat="health" value={character.stats.health} />
+            <StatBar stat="happiness" value={character.stats.happiness} />
+            <StatBar stat="smarts" value={character.stats.smarts} />
+            <StatBar stat="looks" value={character.stats.looks} />
+            <View style={styles.moneyRow}>
+              <Text variant="subhead" color={colors.secondaryText}>
+                Money
+              </Text>
+              <Text variant="tabular" color={colors.money}>
+                {formatMoney(character.money)}
+              </Text>
+            </View>
+          </Card>
+        </View>
 
         {/* Quick Status */}
-        {character.career && (
-          <Card>
-            <Text variant="footnote" color={colors.secondaryText}>JOB</Text>
-            <Text variant="headline">{character.career.title}</Text>
-          </Card>
-        )}
-        {character.inPrison && (
-          <Card>
-            <Text variant="headline" color={colors.danger}>
-              {'\u{1F6D1}'} In Prison — {character.prisonSeasonsLeft} seasons left
-            </Text>
-          </Card>
-        )}
-        {character.education.isEnrolled && (
-          <Card>
-            <Text variant="footnote" color={colors.secondaryText}>EDUCATION</Text>
-            <Text variant="headline">{character.education.school || character.education.level}</Text>
-          </Card>
+        {(character.career || character.inPrison || character.education.isEnrolled) && (
+          <View style={styles.statusCards}>
+            {character.career && (
+              <Card>
+                <Text variant="footnote" color={colors.secondaryText}>JOB</Text>
+                <Text variant="headline">{character.career.title}</Text>
+              </Card>
+            )}
+            {character.inPrison && (
+              <Card>
+                <Text variant="headline" color={colors.danger}>
+                  {'\u{1F6D1}'} In Prison — {character.prisonSeasonsLeft} seasons left
+                </Text>
+              </Card>
+            )}
+            {character.education.isEnrolled && (
+              <Card>
+                <Text variant="footnote" color={colors.secondaryText}>EDUCATION</Text>
+                <Text variant="headline">{character.education.school || character.education.level}</Text>
+              </Card>
+            )}
+          </View>
         )}
 
         {/* Event Log */}
-        <Text variant="headline" style={styles.sectionTitle}>
-          Recent Events
-        </Text>
-        {eventLog.length === 0 ? (
-          <Text variant="body" color={colors.tertiaryText} align="center">
-            Tap "Next Season" to begin your life...
+        <View>
+          <Text variant="headline" style={styles.sectionTitle}>
+            Recent Events
           </Text>
-        ) : (
-          eventLog.slice(0, 30).map((entry) => (
-            <Card key={entry.id} style={styles.eventCard}>
-              <View style={styles.eventHeader}>
-                <Text variant="headline">{entry.title}</Text>
-                <Text variant="caption1" color={colors.tertiaryText}>
-                  Age {entry.age}
-                </Text>
-              </View>
-              <Text variant="body" color={colors.secondaryText}>
-                {entry.description}
-              </Text>
-              {entry.choiceMade && (
-                <Text variant="footnote" color={colors.accent}>
-                  You chose: {entry.choiceMade}
-                </Text>
-              )}
-              {entry.outcome && entry.outcome !== entry.description && (
-                <Text variant="footnote" color={colors.secondaryText}>
-                  {entry.outcome}
-                </Text>
-              )}
-            </Card>
-          ))
-        )}
+          {eventLog.length === 0 ? (
+            <Text variant="body" color={colors.tertiaryText} align="center" style={{ marginTop: spacing.sm }}>
+              Tap "Next Season" to begin your life...
+            </Text>
+          ) : (
+            <View style={styles.eventLog}>
+              {eventLog.slice(0, 30).map((entry, index) => (
+                <View key={entry.id} style={[styles.eventRow, index > 0 && styles.eventRowBorder]}>
+                  <View style={styles.eventRowHeader}>
+                    <Text variant="subhead" numberOfLines={1} style={{ flex: 1 }}>
+                      {entry.emoji ? `${entry.emoji} ` : ''}{entry.title}
+                    </Text>
+                    <Text variant="caption1" color={colors.tertiaryText}>
+                      {entry.age}
+                    </Text>
+                  </View>
+                  {entry.choiceMade ? (
+                    <Text variant="footnote" color={colors.accent} numberOfLines={1}>
+                      {entry.choiceMade}{entry.outcome && entry.outcome !== entry.description ? ` — ${entry.outcome}` : ''}
+                    </Text>
+                  ) : entry.description ? (
+                    <Text variant="footnote" color={colors.secondaryText} numberOfLines={1}>
+                      {entry.description}
+                    </Text>
+                  ) : null}
+                </View>
+              ))}
+            </View>
+          )}
+        </View>
+
       </ScrollView>
 
       {/* Age Up Button */}
@@ -200,7 +221,7 @@ export default function LifeScreen() {
           </View>
         ) : (
           <Button
-            title="Next Season \u2192"
+            title="Next Season"
             onPress={handleAgeUp}
             size="large"
             style={styles.ageUpButton}
@@ -220,9 +241,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    padding: spacing.lg,
-    paddingBottom: 120,
-    gap: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingBottom: 100,
+    gap: spacing.lg,
   },
   startScreen: {
     flex: 1,
@@ -235,8 +256,32 @@ const styles = StyleSheet.create({
     marginTop: spacing.xl,
     width: '100%',
   },
-  statsCard: {
+  topCardsRow: {
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  leftColumn: {
+    flex: 2,
     gap: spacing.sm,
+  },
+  avatarCard: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarEmoji: {
+    fontSize: 64,
+    lineHeight: 80,
+  },
+  statsCard: {
+    flex: 3,
+    gap: spacing.sm,
+  },
+  nameRow: {
+    marginBottom: spacing.xs,
+  },
+  nameText: {
+    flexShrink: 1,
   },
   moneyRow: {
     flexDirection: 'row',
@@ -244,20 +289,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: spacing.xs,
   },
-  sectionTitle: {
-    marginTop: spacing.md,
-  },
-  eventCard: {
+  statusCards: {
     gap: spacing.xs,
   },
-  eventHeader: {
+  sectionTitle: {
+    marginTop: spacing.xs,
+  },
+  eventLog: {
+    marginTop: spacing.sm,
+  },
+  eventRow: {
+    paddingVertical: spacing.sm,
+  },
+  eventRowBorder: {
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.separator,
+  },
+  eventRowHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: spacing.sm,
   },
   buttonContainer: {
-    padding: spacing.lg,
-    paddingBottom: spacing.xl,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.md,
     backgroundColor: colors.background,
   },
   gameOverContainer: {

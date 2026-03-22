@@ -386,12 +386,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_tornado',
     title: 'Category: Oh No',
     description:
-      'The sky turns green. The sirens wail. A tornado is heading directly for your neighborhood, and it looks personally offended.',
+      'A tornado is heading straight for your neighborhood and it looks personally offended.',
     category: 'life',
     probability: 0.05,
     minAge: 5,
     cooldown: 40,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 5 }],
     choices: [
       {
         id: 'shelter',
@@ -458,12 +458,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_found_money',
     title: 'Sidewalk Treasure',
     description:
-      'You look down and there it is — a crisp $100 bill, just lying on the sidewalk like it fell out of the universe\'s pocket. Nobody else has noticed. Yet.',
+      'You spot a crisp $100 bill on the sidewalk and nobody else has noticed yet.',
     category: 'life',
     probability: 0.1,
     minAge: 6,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 6 }],
     choices: [
       {
         id: 'keep_money',
@@ -603,12 +603,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_celebrity_encounter',
     title: 'Is That...?',
     description:
-      'You\'re standing in line at a coffee shop when the person in front of you turns around. That face. You know that face. It\'s a genuine, honest-to-god celebrity. They\'re ordering an oat milk latte.',
+      'You spot a genuine celebrity ordering an oat milk latte at your coffee shop.',
     category: 'life',
     probability: 0.08,
     minAge: 10,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 10 }],
     choices: [
       {
         id: 'play_it_cool',
@@ -847,12 +847,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_alien_abduction',
     title: 'Close Encounter of the WTF Kind',
     description:
-      'You wake up in a field at 4 AM with no memory of the last six hours. There\'s a strange burn mark on your arm, your watch is running backwards, and you suddenly know the word for "paperclip" in seven alien languages. What just happened?',
+      'You wake up in a field at 4 AM with no memory, a strange burn mark, and sudden knowledge of seven alien languages.',
     category: 'life',
     probability: 0.005,
     minAge: 12,
     oneTime: true,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 12 }],
     choices: [
       {
         id: 'tell_everyone',
@@ -1012,12 +1012,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_wrongly_accused',
     title: 'It Wasn\'t Me (Seriously)',
     description:
-      'Your neighbor accuses you of stealing their garden gnome. You did not steal the gnome. You have never even looked at the gnome. But the evidence — a muddy footprint that matches your shoe size — is damning.',
+      'Your neighbor accuses you of stealing their garden gnome and the muddy footprint evidence is damning.',
     category: 'life',
     probability: 0.08,
     minAge: 12,
     cooldown: 16,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 12 }],
     choices: [
       {
         id: 'defend_yourself',
@@ -1097,12 +1097,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_viral_embarrassment',
     title: 'Main Character (Derogatory)',
     description:
-      'Someone filmed you tripping UP a flight of stairs while holding a full tray of nachos. The video has 4 million views. Your face is clearly visible. Your mother has already texted you the link.',
+      'A video of you tripping up stairs with a tray of nachos has 4 million views and your mom already sent the link.',
     category: 'life',
     probability: 0.06,
     minAge: 13,
     cooldown: 20,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 13 }],
     choices: [
       {
         id: 'lean_into_it',
@@ -1164,12 +1164,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_stuck_elevator',
     title: 'Going Nowhere',
     description:
-      'The elevator lurches to a stop between floors. The lights flicker. You are trapped with a stranger who is breathing very loudly and a mysterious smell that is getting worse.',
+      'The elevator stops between floors and you\'re trapped with a loud breather and a mysterious smell.',
     category: 'life',
     probability: 0.07,
     minAge: 10,
     cooldown: 16,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 10 }],
     choices: [
       {
         id: 'press_button',
@@ -1388,12 +1388,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_golf_ball',
     title: 'FORE! (Too Late)',
     description:
-      'You\'re walking near a golf course when a white blur rockets out of the sky and hits you directly in the shoulder. A distant voice yells "FORE!" approximately three seconds after impact. Thanks, buddy.',
+      'A golf ball rockets out of the sky and nails your shoulder — someone yells "FORE!" three seconds too late.',
     category: 'life',
     probability: 0.06,
     minAge: 8,
     cooldown: 20,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 8 }],
     choices: [
       {
         id: 'confront_golfer',
@@ -1473,12 +1473,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_bird_poop',
     title: 'Aerial Assault',
     description:
-      'A bird poops directly on your head. Not your shoulder. Not your jacket. Your HEAD. In front of people. They say it\'s good luck. They are lying.',
+      'A bird poops directly on your head in front of people — they say it\'s good luck, they\'re lying.',
     category: 'life',
     probability: 0.1,
     minAge: 3,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 3 }],
     choices: [
       {
         id: 'laugh_it_off',
@@ -1588,12 +1588,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_flash_mob',
     title: 'Why Is Everyone Dancing?',
     description:
-      'You\'re walking through a mall when suddenly 50 people start doing synchronized choreography to a pop song. You are standing in the exact center. Cameras are everywhere. This was not in your plans.',
+      'A flash mob erupts around you in a mall and you\'re standing dead center with cameras everywhere.',
     category: 'life',
     probability: 0.06,
     minAge: 8,
     cooldown: 20,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 8 }],
     choices: [
       {
         id: 'join_dance',
@@ -1662,12 +1662,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_kindness',
     title: 'Unexpected Humanity',
     description:
-      'You\'re having the worst day. Your coffee spilled, you missed the bus, it started raining. Then a complete stranger stops, hands you their umbrella, says "You look like you need this more than I do," and walks away in the rain. What?',
+      'On your worst day ever, a stranger hands you their umbrella and walks away in the rain.',
     category: 'life',
     probability: 0.1,
     minAge: 8,
     cooldown: 8,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 8 }],
     choices: [
       {
         id: 'accept_kindness',
@@ -1728,12 +1728,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_banana_peel',
     title: 'Life Imitates Cartoons',
     description:
-      'You step on an actual banana peel. You slip. In slow motion, your arms windmill through the air as you try to defy physics. You fail. You land flat on your back in front of a crowd. This only happens in movies. Until now.',
+      'You slip on an actual banana peel and land flat on your back in front of a crowd.',
     category: 'life',
     probability: 0.05,
     minAge: 6,
     cooldown: 20,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 6 }],
     choices: [
       {
         id: 'take_a_bow',
@@ -1862,12 +1862,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_power_outage',
     title: 'Darkness Falls',
     description:
-      'The power goes out. Not just your house — the whole block. No WiFi. No TV. No microwave. You are now a pioneer. Your phone has 12% battery. This is a crisis.',
+      'The power goes out on the whole block — no WiFi, no TV, and your phone is at 12%.',
     category: 'life',
     probability: 0.1,
     minAge: 5,
     cooldown: 8,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 5 }],
     choices: [
       {
         id: 'enjoy_outage',
@@ -2012,12 +2012,14 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_flu',
     title: 'The Great Unwellness',
     description:
-      'It starts with a tickle in your throat. Within 24 hours you are a shivering, sneezing, moaning heap of misery. The flu has arrived, and it brought friends.',
+      'You wake up shivering and sneezing. The flu has arrived.',
     category: 'health',
-    probability: 0.15,
-    minAge: 3,
+    probability: 0.08,
+    minAge: 8,
     cooldown: 6,
-    conditions: [],
+    conditions: [
+      { type: 'minAge', value: 8 },
+    ],
     choices: [
       {
         id: 'rest_flu',
@@ -2106,12 +2108,14 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_food_poisoning',
     title: 'Revenge of Last Night\'s Sushi',
     description:
-      'It hits at 2 AM. Your stomach makes a sound that is not found in nature. The gas station sushi was a mistake. The next 12 hours are a battle between you and your own digestive system. The digestive system is winning.',
+      'Something you ate is fighting back. Hard.',
     category: 'health',
-    probability: 0.12,
-    minAge: 5,
+    probability: 0.08,
+    minAge: 14,
     cooldown: 8,
-    conditions: [],
+    conditions: [
+      { type: 'minAge', value: 14 },
+    ],
     choices: [
       {
         id: 'suffer_quietly',
@@ -2175,12 +2179,14 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_broken_bone',
     title: 'Snap, Crackle, OWWW',
     description:
-      'You were just walking down your own stairs when your foot finds exactly the wrong angle. A sound that no human body should make echoes through the house. Your ankle is now a modern art installation.',
+      'You step wrong and hear a crack. That\'s not good.',
     category: 'health',
-    probability: 0.08,
-    minAge: 8,
+    probability: 0.06,
+    minAge: 12,
     cooldown: 12,
-    conditions: [],
+    conditions: [
+      { type: 'minAge', value: 12 },
+    ],
     choices: [
       {
         id: 'er_broken',
@@ -2328,12 +2334,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_depression',
     title: 'The Gray Season',
     description:
-      'It creeps in slowly. The things that used to make you happy just... don\'t. Getting out of bed feels like lifting a car. Colors seem muted. Food tastes like nothing. Something is wrong, and it has a name.',
+      'The things that used to make you happy just don\'t anymore — something is wrong, and it has a name.',
     category: 'health',
     probability: 0.1,
     minAge: 14,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 14 }],
     choices: [
       {
         id: 'seek_therapy',
@@ -2570,12 +2576,14 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_allergic_reaction',
     title: 'Body Says NO',
     description:
-      'You eat a new food at a dinner party — something with shrimp — and your face starts to tingle. Then swell. Within minutes you look like a pufferfish. You have apparently been allergic to shrimp your entire life and just found out.',
+      'You try a new food and your face starts swelling. Allergic reaction.',
     category: 'health',
     probability: 0.07,
-    minAge: 5,
+    minAge: 8,
     cooldown: 12,
-    conditions: [],
+    conditions: [
+      { type: 'minAge', value: 8 },
+    ],
     choices: [
       {
         id: 'epipen',
@@ -2870,12 +2878,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_dental_emergency',
     title: 'Tooth Be Told',
     description:
-      'You bite into an apple and something goes CRACK. That\'s not the apple. That\'s your molar. Half of it is now embedded in the apple and the other half is sending lightning bolts of pain through your skull.',
+      'You bite into an apple and your molar goes CRACK — half is in the apple, half is screaming.',
     category: 'health',
     probability: 0.08,
     minAge: 12,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 12 }],
     choices: [
       {
         id: 'emergency_dentist',
@@ -3130,12 +3138,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_anxiety',
     title: 'The Spiral',
     description:
-      'Your heart is racing. Your palms are sweating. You\'re certain something terrible is about to happen, but you can\'t name what. The walls feel closer. Your breathing is shallow. This came out of nowhere.',
+      'Your heart is racing and your palms are sweating — something terrible feels imminent but you can\'t name it.',
     category: 'health',
     probability: 0.1,
     minAge: 14,
     cooldown: 8,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 14 }],
     choices: [
       {
         id: 'breathing_exercise',
@@ -3604,12 +3612,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_new_friend',
     title: 'Found One in the Wild',
     description:
-      'You\'re waiting in a ridiculously long line and strike up a conversation with the person next to you. Within 10 minutes, you\'ve discovered you have the same obscure taste in music, the same weird food opinions, and the same sense of humor. This might be a friend.',
+      'You strike up a conversation in a long line and discover you share the same obscure taste in everything.',
     category: 'social',
     probability: 0.1,
     minAge: 10,
     cooldown: 8,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 10 }],
     choices: [
       {
         id: 'exchange_numbers',
@@ -3784,12 +3792,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_volunteering',
     title: 'Help Wanted (No Pay, Great Feelings)',
     description:
-      'A local organization needs volunteers this weekend. Building houses, cleaning up a park, or serving meals at a shelter. It would mean giving up your Saturday of doing nothing. But "nothing" isn\'t going anywhere.',
+      'A local organization needs volunteers this weekend and your Saturday of doing nothing can wait.',
     category: 'social',
     probability: 0.1,
     minAge: 13,
     cooldown: 8,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 13 }],
     choices: [
       {
         id: 'volunteer',
@@ -3851,12 +3859,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_gossip',
     title: 'They\'re Talking About You',
     description:
-      'You overhear someone at a gathering telling a wildly inaccurate story about you. According to this version, you once wrestled a bear, got fired from a circus, and may or may not be a minor celebrity in Belgium. None of this is true.',
+      'You overhear someone telling a wildly inaccurate story about you involving a bear, a circus, and minor celebrity status in Belgium.',
     category: 'social',
     probability: 0.08,
     minAge: 14,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 14 }],
     choices: [
       {
         id: 'confront_gossip',
@@ -4002,12 +4010,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_proposal_witness',
     title: 'Bystander to Love',
     description:
-      'You\'re eating dinner alone at a restaurant when the man at the next table gets down on one knee. The whole restaurant goes silent. She starts crying. The violin player appears out of nowhere. You are now an unwilling extra in someone else\'s love story.',
+      'The guy at the next table gets on one knee and now you\'re an unwilling extra in someone else\'s love story.',
     category: 'social',
     probability: 0.06,
     minAge: 16,
     cooldown: 16,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 16 }],
     choices: [
       {
         id: 'cheer_proposal',
@@ -4057,12 +4065,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_accidental_hero',
     title: 'Reluctant Hero',
     description:
-      'A kid\'s balloon floats away in the park. Without thinking, you sprint and make a diving catch. You land in a bush. The kid is thrilled. Parents are applauding. A local news crew that happened to be there is now running toward you with a camera.',
+      'You make a diving catch to save a kid\'s runaway balloon and a news crew caught the whole thing.',
     category: 'social',
     probability: 0.05,
     minAge: 12,
     cooldown: 20,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 12 }],
     choices: [
       {
         id: 'accept_hero',
@@ -4182,12 +4190,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_mistaken_identity',
     title: 'Wrong Person, Wild Ride',
     description:
-      'A stranger runs up to you and hugs you. "STEVE! I CAN\'T BELIEVE IT\'S YOU!" You are not Steve. You have never been Steve. But this person is SO happy to see Steve that you don\'t have the heart to correct them immediately.',
+      'A stranger hugs you screaming "STEVE!" — you are not Steve but they\'re so happy you can\'t correct them.',
     category: 'social',
     probability: 0.06,
     minAge: 14,
     cooldown: 16,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 14 }],
     choices: [
       {
         id: 'be_steve',
@@ -4383,12 +4391,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_witness_crime',
     title: 'Wrong Place, Wrong Time',
     description:
-      'You see someone shoplift a truly absurd amount of cheese from a grocery store. Like, an armful of cheese wheels. They make eye contact with you. You make eye contact with them. Time stops. The cheese does not.',
+      'You lock eyes with someone shoplifting an armful of cheese wheels — time stops, the cheese does not.',
     category: 'social',
     probability: 0.07,
     minAge: 14,
     cooldown: 16,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 14 }],
     choices: [
       {
         id: 'report_cheese',
@@ -4572,12 +4580,14 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_sleepwalking',
     title: 'Night Moves',
     description:
-      'You wake up in your front yard at 3 AM in your pajamas. Your neighbor\'s security camera later reveals that you walked outside, reorganized their garden gnomes into a perfect circle, saluted, and walked back inside. You have no memory of this.',
+      'You wake up in your front yard at 3 AM. You sleepwalked again.',
     category: 'health',
     probability: 0.05,
     minAge: 10,
     cooldown: 20,
-    conditions: [],
+    conditions: [
+      { type: 'minAge', value: 10 },
+    ],
     choices: [
       {
         id: 'see_doctor_sleep',
@@ -4707,12 +4717,12 @@ export const RANDOM_EVENTS: GameEvent[] = [
     id: 'random_bad_date_witnessed',
     title: 'Dinner and a Show',
     description:
-      'At the table next to you, someone is on the worst first date in human history. They\'ve been talking about their ex for 40 minutes straight. Their date is making eye contact with you. A silent plea for rescue.',
+      'The table next to you is hosting the worst first date in history and the victim is making eye contact with you.',
     category: 'social',
     probability: 0.07,
     minAge: 16,
     cooldown: 12,
-    conditions: [],
+    conditions: [{ type: 'minAge', value: 16 }],
     choices: [
       {
         id: 'rescue_stranger',

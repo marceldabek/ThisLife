@@ -16,6 +16,7 @@ import {
   DEFAULT_SETTINGS,
   DEFAULT_EDUCATION,
   getNextSeason,
+  getEmojiForAge,
 } from '../types/game';
 import { performAgeUp } from '../engine/ageUp';
 
@@ -79,6 +80,10 @@ export interface GameActions {
   // Achievements
   unlockAchievement: (achievementId: string) => void;
 
+  // Activities
+  useActivity: (activityId: string) => void;
+  hasUsedActivity: (activityId: string) => boolean;
+
   // Settings
   updateSettings: (settings: Partial<GameSettings>) => void;
 
@@ -103,6 +108,7 @@ const initialCharacter: Character = {
   lastName: '',
   gender: 'male',
   age: 0,
+  birthYear: 2000,
   season: 'spring',
   stats: { ...DEFAULT_STATS },
   money: 0,
@@ -126,6 +132,8 @@ const initialState: GameState = {
   settings: { ...DEFAULT_SETTINGS },
   currentEventId: null,
   firedEventIds: [],
+  activitiesUsedThisSeason: [],
+  seasonsSinceLastEvent: 0,
   gameOver: false,
   lifetimeEarnings: 0,
 };
@@ -137,7 +145,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   // -- Lifecycle --
   newGame: (firstName, lastName, gender) => {
-    const emoji = gender === 'male' ? '\u{1F476}' : '\u{1F476}';
+    const emoji = getEmojiForAge(0, gender);
+    const birthYear = 1990 + Math.floor(Math.random() * 35); // 1990-2024
     set({
       ...initialState,
       character: {
@@ -146,6 +155,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         lastName,
         gender,
         emoji,
+        birthYear,
         stats: {
           health: 80 + Math.floor(Math.random() * 21),
           happiness: 70 + Math.floor(Math.random() * 31),
@@ -168,7 +178,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     const updates = performAgeUp(state);
     if (Object.keys(updates).length > 0) {
-      set(updates);
+      set({ ...updates, activitiesUsedThisSeason: [] });
     }
   },
 
@@ -405,6 +415,16 @@ export const useGameStore = create<GameStore>((set, get) => ({
           : a
       ),
     })),
+
+  // -- Activities --
+  useActivity: (activityId) =>
+    set((s) => ({
+      activitiesUsedThisSeason: [...s.activitiesUsedThisSeason, activityId],
+    })),
+
+  hasUsedActivity: (activityId) => {
+    return get().activitiesUsedThisSeason.includes(activityId);
+  },
 
   // -- Settings --
   updateSettings: (updates) =>

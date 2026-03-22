@@ -15,7 +15,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_parent_life_advice_good',
     title: 'Words of Wisdom',
     description:
-      'Your parent sits you down at the kitchen table with that look — the one that means a life lecture is coming. "Let me tell you something nobody told me at your age..."',
+      'Your parent has that look — a life lecture is incoming.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 8,
@@ -79,7 +79,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_parent_terrible_advice',
     title: 'Questionable Parenting',
     description:
-      'Your parent confidently dispenses advice that sounds like it came from a fortune cookie written by someone who failed life. "The key to success is never apologizing. Apologies are for losers."',
+      'Your parent confidently dispenses the worst advice you\'ve ever heard.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -143,7 +143,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_sibling_rivalry',
     title: 'Sibling Showdown',
     description:
-      'Your sibling just got praised for something and now they won\'t shut up about it. The smug look on their face is physically painful to witness. This means war.',
+      'Your sibling got praised for something and the smug look on their face is unbearable.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 6,
@@ -232,7 +232,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_family_reunion_disaster',
     title: 'The Family Reunion',
     description:
-      'It\'s time for the annual family reunion. Aunt Marge is already three drinks in, Uncle Dave is setting up a "friendly" volleyball tournament with a trophy he made himself, and someone brought a potato salad that smells like a crime scene.',
+      'The annual family reunion is here and the chaos is already brewing.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 16,
@@ -320,7 +320,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_parent_sick',
     title: 'The Phone Call You Dread',
     description:
-      'Your phone rings. Your parent has been hospitalized. The doctor says it\'s serious. The world suddenly feels very small and very fragile.',
+      'Your parent has been hospitalized — the doctor says it\'s serious.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 20,
@@ -390,7 +390,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_inheritance_drama',
     title: 'Reading of the Will',
     description:
-      'A distant relative has passed away and left behind a will that\'s about to turn your family into a reality TV show. Apparently, there\'s money involved — and nothing destroys a family faster than unexpected money.',
+      'A distant relative\'s will is about to tear the family apart over money.',
     category: 'relationship',
     probability: 0.02,
     cooldown: 40,
@@ -461,7 +461,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_family_secret',
     title: 'Skeleton in the Closet',
     description:
-      'While cleaning out the attic, you find a box of old letters and photos that reveal a family secret nobody was supposed to know about. Turns out your family tree has some... unexpected branches.',
+      'You find old letters in the attic that reveal a family secret nobody was supposed to know.',
     category: 'relationship',
     probability: 0.02,
     oneTime: true,
@@ -526,7 +526,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_holiday_blowup',
     title: 'Holiday Dinner from Hell',
     description:
-      'Everyone\'s gathered for the holiday meal. The table is set, the food smells amazing, and then someone brings up politics. You can literally see the warmth draining from the room.',
+      'Holiday dinner is going great until someone brings up politics.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -618,7 +618,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_parent_disapproves',
     title: 'Parental Disappointment',
     description:
-      'Your parent has discovered your latest life choice and they are... not thrilled. You can tell by the way they\'re sighing loud enough to register on the Richter scale.',
+      'Your parent discovered your latest life choice and the sighing is seismic.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 8,
@@ -683,7 +683,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_sibling_money',
     title: 'The Sibling Bailout',
     description:
-      'Your sibling calls you with that specific tone of voice — the one that means they need money. "So, I\'m in a tiny bit of a situation..."',
+      'Your sibling calls with that tone — the one that means they need money.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 10,
@@ -754,7 +754,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_family_vacation',
     title: 'Family Vacation From Hell',
     description:
-      'Your family has planned a vacation together. The car is packed, the itinerary is "flexible" (read: nonexistent), and everyone is already arguing about the playlist.',
+      'The car is packed for a family vacation and everyone\'s already arguing about the playlist.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -829,7 +829,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_partner_texting',
     title: 'Who\'s That Texting?',
     description:
-      'Your partner\'s phone buzzes at 2 AM. Again. They flip it face-down quickly when they notice you looking. Your stomach does that thing where it turns into a cold knot.',
+      'Your partner\'s phone buzzes at 2 AM and they flip it face-down real quick.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 10,
@@ -938,7 +938,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_romantic_surprise',
     title: 'Surprise Romantic Gesture',
     description:
-      'Your partner shows up unannounced with flowers, candles, and what appears to be a homemade dinner that they clearly spent hours on. They look equal parts proud and terrified.',
+      'Your partner shows up with flowers, candles, and a homemade dinner they clearly spent hours on.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 8,
@@ -1005,7 +1005,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_meet_the_parents',
     title: 'Meet the Parents',
     description:
-      'The day has come. You\'re meeting your partner\'s parents for the first time. Your partner keeps saying "just be yourself" which is terrifying because yourself is a disaster.',
+      'You\'re meeting your partner\'s parents for the first time — "just be yourself" has never sounded so terrifying.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 20,
@@ -1082,7 +1082,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_moving_in',
     title: 'The Big Move',
     description:
-      'You and your partner are talking about taking the next step: moving in together. The excitement is tempered by the terrifying realization that they\'ll discover all your weird habits.',
+      'You and your partner are talking about moving in together.',
     category: 'relationship',
     probability: 0.04,
     oneTime: true,
@@ -1162,7 +1162,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_marriage_proposal',
     title: 'The Big Question',
     description:
-      'Your heart is pounding. The ring is in your pocket (or your partner is acting suspiciously emotional). One of you is about to pop the question. The restaurant is too quiet. Your palms are sweating.',
+      'The ring is in your pocket and your palms are sweating — someone\'s about to pop the question.',
     category: 'relationship',
     probability: 0.03,
     oneTime: true,
@@ -1242,7 +1242,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_wedding_stress',
     title: 'Wedding Planning Nightmare',
     description:
-      'The wedding planning has consumed your entire life. Your partner has opinions about napkin colors. YOUR MOTHER has opinions about napkin colors. The florist just doubled their prices. You\'re this close to eloping.',
+      'Wedding planning has consumed your life and everyone has opinions about napkin colors.',
     category: 'relationship',
     probability: 0.04,
     oneTime: true,
@@ -1319,7 +1319,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_kids_disagreement',
     title: 'The Kids Conversation',
     description:
-      'It finally comes up — the conversation about children. Your partner feels strongly about this. So do you. The problem? You don\'t feel the same way.',
+      'The kids conversation comes up and you two don\'t feel the same way about it.',
     category: 'relationship',
     probability: 0.03,
     oneTime: true,
@@ -1389,7 +1389,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_caught_cheating',
     title: 'The Betrayal',
     description:
-      'You walk in on something you can never un-see. Your partner — with someone else. Time freezes. Then everything happens at once.',
+      'You walk in on your partner with someone else.',
     category: 'relationship',
     probability: 0.02,
     cooldown: 40,
@@ -1492,7 +1492,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_divorce',
     title: 'Irreconcilable Differences',
     description:
-      'The lawyers are involved now. What started as "taking a break" has turned into paperwork, custody discussions, and dividing up the furniture. The love is gone. Now it\'s just logistics.',
+      'The lawyers are involved — what started as "taking a break" is now a divorce.',
     category: 'relationship',
     probability: 0.02,
     oneTime: true,
@@ -1570,7 +1570,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_anniversary_forgotten',
     title: 'The Forgotten Anniversary',
     description:
-      'Your partner gives you that look — the look that says you\'ve forgotten something important. Your brain cycles through birthdays, holidays... oh no. Your anniversary. That was yesterday.',
+      'Your partner gives you that look — you forgot your anniversary.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -1639,7 +1639,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_ex_returns',
     title: 'Blast from the Past',
     description:
-      'You\'re going about your normal day when you spot a painfully familiar face. Your ex. They look... good. Annoyingly good. They\'re walking toward you. There\'s no escape.',
+      'You spot your ex in public and they look annoyingly good.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -1711,7 +1711,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_long_distance',
     title: 'Miles Between Us',
     description:
-      'Your partner got an incredible opportunity — but it\'s in another city. The distance would be significant. The love is real, but so is geography.',
+      'Your partner got an amazing opportunity in another city — the love is real, but so is geography.',
     category: 'relationship',
     probability: 0.03,
     oneTime: true,
@@ -1813,7 +1813,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_jealousy_incident',
     title: 'The Green-Eyed Monster',
     description:
-      'Your partner comes home raving about an "amazing" new coworker. They mention their name five times in three minutes. Your smile is frozen in place as a tiny voice in your head whispers, "Should you be worried?"',
+      'Your partner won\'t stop raving about their "amazing" new coworker.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -1884,7 +1884,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_trouble',
     title: 'A Friend in Need',
     description:
-      'Your phone buzzes at 3 AM. It\'s your friend, and they\'re in trouble. Legal trouble. They\'re at the police station and you\'re their one phone call. This is either flattering or concerning.',
+      'Your friend calls at 3 AM from the police station — you\'re their one phone call.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -1981,7 +1981,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_betrays_secret',
     title: 'Loose Lips',
     description:
-      'You told your friend something deeply personal in confidence. They swore they\'d take it to the grave. Apparently "the grave" was three days and a brunch with other friends.',
+      'Your friend spilled a secret you told them in confidence — apparently "the grave" was three days.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 10,
@@ -2048,7 +2048,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_group_drama',
     title: 'Choose Your Side',
     description:
-      'Your friend group has split into two factions over some drama that started at a party last weekend. Both sides are demanding you pick a team. Switzerland is not an option, apparently.',
+      'Your friend group has split into factions and both sides demand you pick a team.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 10,
@@ -2142,7 +2142,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_moving',
     title: 'The Going-Away Party',
     description:
-      'Your best friend is moving across the country for a new job. They\'re excited, which makes it worse. You\'re happy for them. You\'re also devastated. You\'re both at the same time.',
+      'Your best friend is moving across the country — you\'re happy for them and devastated at the same time.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 20,
@@ -2212,7 +2212,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_wedding',
     title: 'Best Man/Maid of Honor',
     description:
-      'Your friend is getting married and has asked you to be in the wedding party! You\'re honored. Then you see the itinerary for the bachelor/bachelorette weekend. And the price tag.',
+      'Your friend asked you to be in their wedding party — then you see the price tag.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 16,
@@ -2284,7 +2284,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_dates_ex',
     title: 'Of All People',
     description:
-      'Your friend has started dating your ex. They broke the news over text — a TEXT — with "I hope this doesn\'t make things weird." It very much makes things weird.',
+      'Your friend is dating your ex and broke the news over text.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 20,
@@ -2354,7 +2354,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_best_friend_fallout',
     title: 'The Friendship Breakup',
     description:
-      'It\'s been building for a while. Small things — unanswered texts, cancelled plans, the feeling that you\'re always the one making effort. Your best friendship is crumbling and neither of you knows how to stop it.',
+      'Unanswered texts, cancelled plans — your best friendship is slowly crumbling.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 20,
@@ -2422,7 +2422,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_fwb',
     title: 'Blurred Lines',
     description:
-      'Things between you and your friend have been getting... complicated. Late-night hangouts, lingering eye contact, and last night you almost kissed. The "just friends" label is under serious strain.',
+      'Late-night hangouts, lingering eye contact — the "just friends" label is under serious strain.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 16,
@@ -2503,7 +2503,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_meet_at_party',
     title: 'Eyes Across the Room',
     description:
-      'You\'re at a party trying to look casual when you lock eyes with a stranger. They smile. You smile. Your brain immediately forgets how smiling works and you make a face like you\'re trying to solve long division.',
+      'You lock eyes with a stranger at a party and your brain forgets how smiling works.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 6,
@@ -2577,7 +2577,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_dating_app',
     title: 'Swipe Right on Destiny',
     description:
-      'You matched with someone on a dating app. Their photos look great, their bio is witty, and they actually used complete sentences in their first message. This might be too good to be true.',
+      'A dating app match with good photos, a witty bio, and complete sentences — might be too good to be true.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 6,
@@ -2653,7 +2653,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_blind_date',
     title: 'The Setup',
     description:
-      'A well-meaning friend has set you up on a blind date. "You\'ll LOVE them, I promise!" Your friend\'s track record with promises is questionable at best.',
+      'A friend set you up on a blind date — "You\'ll LOVE them, I promise!"',
     category: 'relationship',
     probability: 0.04,
     cooldown: 8,
@@ -2733,7 +2733,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_speed_dating',
     title: 'Speed Dating Roulette',
     description:
-      'In a moment of adventurous desperation, you signed up for a speed dating event. Three minutes per person. Twenty people. One evening. An unlimited supply of awkward silence.',
+      'You signed up for speed dating — twenty people, three minutes each, unlimited awkwardness.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 12,
@@ -2811,7 +2811,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_crush_work_school',
     title: 'The Impossible Crush',
     description:
-      'You\'ve developed an absolutely devastating crush on someone you see every day. Your brain turns to static every time they walk by. Focus? Productivity? Never heard of them.',
+      'You have a devastating crush on someone you see every day — focus and productivity are gone.',
     category: 'relationship',
     probability: 0.06,
     cooldown: 8,
@@ -2886,7 +2886,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_love_triangle',
     title: 'Love Triangle',
     description:
-      'Two people are interested in you at the same time. This sounds like a compliment until you realize someone is definitely getting hurt and it might be all three of you.',
+      'Two people are interested in you at the same time — someone\'s definitely getting hurt.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 16,
@@ -2957,7 +2957,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_baby_coming',
     title: 'Two Lines',
     description:
-      'The pregnancy test shows two lines. You stare at it. Then you stare at it upside down. Then in different lighting. Two lines. Unambiguous. Life-changing. You need to sit down.',
+      'The pregnancy test shows two lines — unambiguous and life-changing.',
     category: 'relationship',
     probability: 0.03,
     oneTime: true,
@@ -3038,7 +3038,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_parenting_disagreement',
     title: 'Parenting Wars',
     description:
-      'You and your spouse have fundamentally different ideas about how to raise your kid. They think you\'re too lenient. You think they\'re too strict. The child is playing you both like fiddles.',
+      'You and your spouse disagree on parenting style — and the kid is playing you both like fiddles.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -3107,7 +3107,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_marriage_counseling',
     title: 'The Therapist\'s Couch',
     description:
-      'Things have been tense. Real tense. Someone suggested marriage counseling and the other person agreed, which is either a great sign or the beginning of the end.',
+      'Someone suggested marriage counseling — either a great sign or the beginning of the end.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 16,
@@ -3180,7 +3180,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_career_conflict',
     title: 'Whose Career Wins?',
     description:
-      'Your spouse got a promotion that means longer hours and more travel. Meanwhile, your career is at a critical point too. Someone needs to compromise, and both of you are staring at the other one.',
+      'Both your careers are at a critical point — someone needs to compromise.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -3252,7 +3252,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_empty_nest',
     title: 'The Quiet House',
     description:
-      'Your last child has moved out. The house is quiet for the first time in decades. You and your spouse look at each other across an empty dinner table and realize you need to rediscover who you are as a couple.',
+      'Your last child moved out — the house is quiet and you need to rediscover each other.',
     category: 'relationship',
     probability: 0.03,
     oneTime: true,
@@ -3327,7 +3327,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_surprise_pregnancy',
     title: 'Surprise!',
     description:
-      'This was NOT in the plan. A pregnancy test delivers news that rewrites your entire timeline. Your hands are shaking and your brain is doing math on college tuition costs.',
+      'A pregnancy test delivers news that was NOT in the plan.',
     category: 'relationship',
     probability: 0.02,
     oneTime: true,
@@ -3407,7 +3407,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_partner_promotion',
     title: 'Living in Their Shadow',
     description:
-      'Your partner just landed a massive promotion with a salary that dwarfs yours. They\'re celebrating. You\'re smiling on the outside while something complicated happens in your chest.',
+      'Your partner landed a massive promotion that dwarfs your salary.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -3475,7 +3475,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_toxic_in_law',
     title: 'The In-Law Problem',
     description:
-      'Your spouse\'s parent has opinions about everything — your cooking, your career, your parenting, the way you load the dishwasher. They\'re visiting for two weeks. You may not survive.',
+      'Your spouse\'s parent is visiting for two weeks and has opinions about everything you do.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 10,
@@ -3543,7 +3543,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_first_big_fight',
     title: 'The First Big Fight',
     description:
-      'Every couple has one. The argument that starts over something small (the dishes, probably) and snowballs into an airing of every grievance since date one. Tonight is that night.',
+      'A fight about dishes snowballs into every grievance since date one.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 10,
@@ -3612,7 +3612,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_social_media_drama',
     title: 'Posted Without Permission',
     description:
-      'Your partner posted a deeply unflattering photo of you to social media. It has 200 likes and your coworker commented a crying-laughing emoji. This is a violation of the Geneva Convention.',
+      'Your partner posted an unflattering photo of you to social media and it has 200 likes.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -3679,7 +3679,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_reconnect_parent',
     title: 'The Olive Branch',
     description:
-      'After years of distance, your parent reaches out. A simple text: "I\'d like to talk, if you\'re open to it." Three dots appear and disappear. They\'re typing. Backspacing. Typing again.',
+      'After years of distance, your parent texts: "I\'d like to talk, if you\'re open to it."',
     category: 'relationship',
     probability: 0.03,
     cooldown: 20,
@@ -3748,7 +3748,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_sibling_bonding',
     title: 'Unexpected Sibling Moment',
     description:
-      'You and your sibling end up stuck together — a cancelled flight, a long car ride, a power outage. With nothing to do but talk, the conversation goes deeper than it has in years.',
+      'You and your sibling end up stuck together with nothing to do but actually talk.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 12,
@@ -3815,7 +3815,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_partner_depression',
     title: 'The Weight They Carry',
     description:
-      'Your partner has been different lately. Less laughter, more silence. They stay in bed longer, cancel plans, and say "I\'m fine" in a way that clearly means they\'re not. Something is wrong.',
+      'Your partner has gone quiet lately — less laughter, more "I\'m fine" that clearly isn\'t.',
     category: 'relationship',
     probability: 0.03,
     cooldown: 16,
@@ -3885,7 +3885,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_double_date',
     title: 'The Double Date',
     description:
-      'Your friend insists on a double date. Their new partner is "amazing" and they want you to meet. You prepare for an evening of forced conversation and competitive relationship performance.',
+      'Your friend insists on a double date so you can meet their "amazing" new partner.',
     category: 'relationship',
     probability: 0.05,
     cooldown: 8,
@@ -3966,7 +3966,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_child_first_day',
     title: 'First Day of School',
     description:
-      'Your child clings to your leg at the school entrance, eyes wide with terror. "Please don\'t make me go." Your heart shatters into a thousand pieces. You\'re not crying, you\'re sweating through your eyes.',
+      'Your child clings to your leg at the school entrance — "Please don\'t make me go."',
     category: 'relationship',
     probability: 0.04,
     oneTime: true,
@@ -4034,7 +4034,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_romantic_road_trip',
     title: 'The Spontaneous Road Trip',
     description:
-      'Your partner wakes you up at 5 AM. "Let\'s just drive somewhere." No plan, no reservations, no clean underwear packed. Just you, them, and whatever music comes on shuffle.',
+      'Your partner wakes you at 5 AM — "Let\'s just drive somewhere."',
     category: 'relationship',
     probability: 0.04,
     cooldown: 10,
@@ -4104,7 +4104,7 @@ export const RELATIONSHIP_EVENTS: GameEvent[] = [
     id: 'rel_friend_success',
     title: 'Their Big Break',
     description:
-      'Your friend just achieved something incredible — a dream job, a book deal, a viral moment. Everyone is celebrating them. You\'re happy for them. You\'re also... something else. Something you don\'t want to name.',
+      'Your friend just achieved something incredible and everyone\'s celebrating them — you\'re happy, and also something else.',
     category: 'relationship',
     probability: 0.04,
     cooldown: 10,

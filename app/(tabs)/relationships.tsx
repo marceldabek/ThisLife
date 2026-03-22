@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { router } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, Card } from '../../src/components/ui';
 import { useGameStore } from '../../src/store/gameStore';
 import { colors, spacing } from '../../src/theme';
@@ -18,6 +20,7 @@ const TYPE_LABELS: Record<RelationshipType, string> = {
 };
 
 export default function RelationshipsScreen() {
+  const insets = useSafeAreaInsets();
   const relationships = useGameStore((s) => s.relationships);
 
   const grouped = relationships.reduce(
@@ -33,7 +36,7 @@ export default function RelationshipsScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.md }]}
         showsVerticalScrollIndicator={false}
       >
         {relationships.length === 0 ? (
@@ -52,21 +55,24 @@ export default function RelationshipsScreen() {
                 {groupName.toUpperCase()}
               </Text>
               {rels.map((rel) => (
-                <Pressable key={rel.id}>
+                <Pressable
+                  key={rel.id}
+                  onPress={() => router.push(`/relationship/${rel.id}` as any)}
+                  style={({ pressed }) => pressed ? { opacity: 0.7 } : undefined}
+                >
                   <Card style={styles.relCard}>
                     <View style={styles.relRow}>
                       <Text variant="title3">{rel.emoji}</Text>
                       <View style={styles.relInfo}>
                         <Text variant="headline">{rel.name}</Text>
                         <Text variant="footnote" color={colors.secondaryText}>
-                          {rel.type} · Age {rel.age}
+                          {rel.type} · Age {Math.floor(rel.age)}
                         </Text>
                       </View>
-                      <View style={styles.closenessContainer}>
-                        <Text variant="tabular" color={colors.accent}>
-                          {rel.closeness}%
-                        </Text>
-                      </View>
+                      <Text variant="tabular" color={colors.accent}>
+                        {rel.closeness}%
+                      </Text>
+                      <Text variant="body" color={colors.tertiaryText}>{'\u203A'}</Text>
                     </View>
                   </Card>
                 </Pressable>
@@ -107,8 +113,5 @@ const styles = StyleSheet.create({
   relInfo: {
     flex: 1,
     gap: 2,
-  },
-  closenessContainer: {
-    alignItems: 'flex-end',
   },
 });

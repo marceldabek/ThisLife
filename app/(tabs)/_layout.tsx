@@ -1,7 +1,11 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { SymbolView } from 'expo-symbols';
+import { Text } from 'react-native';
 import { colors } from '../../src/theme/colors';
+
+function TabIcon({ emoji, color }: { emoji: string; color: string }) {
+  return <Text style={{ fontSize: 22, color }}>{emoji}</Text>;
+}
 
 export default function TabLayout() {
   return (
@@ -14,80 +18,42 @@ export default function TabLayout() {
           borderTopColor: colors.separator,
           borderTopWidth: 0.5,
         },
-        headerStyle: {
-          backgroundColor: colors.background,
-        },
-        headerTitleStyle: {
-          color: colors.primaryText,
-          fontWeight: '700',
-          fontSize: 17,
-        },
-        headerShadowVisible: false,
+        headerShown: false,
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Life',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: 'heart.fill', android: 'favorite', web: 'heart' }}
-              tintColor={color}
-              size={24}
-            />
-          ),
-        }}
-      />
       <Tabs.Screen
         name="career"
         options={{
           title: 'Career',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: 'briefcase.fill', android: 'work', web: 'briefcase' }}
-              tintColor={color}
-              size={24}
-            />
-          ),
+          tabBarIcon: ({ color }) => <TabIcon emoji={'\uD83D\uDCBC'} color={color} />,
         }}
       />
       <Tabs.Screen
         name="relationships"
         options={{
           title: 'People',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: 'person.2.fill', android: 'group', web: 'users' }}
-              tintColor={color}
-              size={24}
-            />
-          ),
+          tabBarIcon: ({ color }) => <TabIcon emoji={'\uD83D\uDC65'} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Life',
+          tabBarIcon: ({ color }) => <TabIcon emoji={'\u2764\uFE0F'} color={color} />,
         }}
       />
       <Tabs.Screen
         name="activities"
         options={{
           title: 'Activities',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: 'figure.run', android: 'directions_run', web: 'activity' }}
-              tintColor={color}
-              size={24}
-            />
-          ),
+          tabBarIcon: ({ color }) => <TabIcon emoji={'\u26A1'} color={color} />,
         }}
       />
       <Tabs.Screen
         name="identity"
         options={{
           title: 'Identity',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: 'person.crop.circle', android: 'account_circle', web: 'user' }}
-              tintColor={color}
-              size={24}
-            />
-          ),
+          tabBarIcon: ({ color }) => <TabIcon emoji={'\uD83D\uDE4D'} color={color} />,
         }}
       />
     </Tabs>

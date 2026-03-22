@@ -220,6 +220,27 @@ export function generateRandomPerson(
 }
 
 // ------------------------------------------------------------------
+// 2b. generateCoworkers
+// ------------------------------------------------------------------
+
+/**
+ * Generate 2-4 random coworker NPCs for when the player gets hired.
+ */
+export function generateCoworkers(
+  playerAge: number,
+  count?: number,
+): Omit<Relationship, 'id'>[] {
+  const n = count ?? randomInt(2, 4);
+  const coworkers: Omit<Relationship, 'id'>[] = [];
+  for (let i = 0; i < n; i++) {
+    coworkers.push(
+      generateRandomPerson('coworker', [Math.max(18, playerAge - 10), playerAge + 15]),
+    );
+  }
+  return coworkers;
+}
+
+// ------------------------------------------------------------------
 // 3. interactionEffect
 // ------------------------------------------------------------------
 

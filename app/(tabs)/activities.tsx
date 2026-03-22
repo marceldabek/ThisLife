@@ -1,22 +1,30 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView, Pressable, Alert } from 'react-native';
 import { router } from 'expo-router';
-import { Text, Card, Button } from '../../src/components/ui';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Text, Card } from '../../src/components/ui';
 import { useGameStore } from '../../src/store/gameStore';
+import { useAppStore } from '../../src/store/settingsStore';
 import { colors, spacing } from '../../src/theme';
 import { getAvailableCrimes, CRIME_DEFINITIONS, attemptCrime } from '../../src/engine/crime';
 import type { CrimeType } from '../../src/types/game';
 
-interface ActivityItem {
-  id: string;
-  emoji: string;
-  title: string;
-  subtitle: string;
-  minAge: number;
-  action: (store: ReturnType<typeof useGameStore.getState>) => void;
-}
+const PLAY_OPTIONS = [
+  { name: 'kicked a ball around', health: 3, happiness: 4, smarts: 0 },
+  { name: 'played with building blocks', health: 0, happiness: 3, smarts: 3 },
+  { name: 'drew pictures', health: 0, happiness: 5, smarts: 1 },
+  { name: 'played make-believe', health: 1, happiness: 5, smarts: 1 },
+  { name: 'splashed in puddles', health: 2, happiness: 4, smarts: 0 },
+  { name: 'played with a chemistry set', health: 0, happiness: 2, smarts: 5 },
+  { name: 'rode a bicycle', health: 4, happiness: 3, smarts: 0 },
+  { name: 'played tag with friends', health: 4, happiness: 4, smarts: 0 },
+  { name: 'read a picture book', health: 0, happiness: 2, smarts: 4 },
+  { name: 'played video games', health: -1, happiness: 5, smarts: 1 },
+];
+
 
 export default function ActivitiesScreen() {
+  const insets = useSafeAreaInsets();
   const character = useGameStore((s) => s.character);
   const modifyStat = useGameStore((s) => s.modifyStat);
   const modifyReputation = useGameStore((s) => s.modifyReputation);
@@ -25,8 +33,10 @@ export default function ActivitiesScreen() {
   const addEventToLog = useGameStore((s) => s.addEventToLog);
   const goToPrison = useGameStore((s) => s.goToPrison);
   const addCriminalRecord = useGameStore((s) => s.addCriminalRecord);
+  const activitiesUsedThisSeason = useGameStore((s) => s.activitiesUsedThisSeason);
+  const useActivity = useGameStore((s) => s.useActivity);
 
-  const doActivity = (title: string, description: string, effects: () => void) => {
+  const doActivity = (activityId: string, title: string, description: string, statChanges: string, effects: () => void) => {
     effects();
     addEventToLog({
       age: character.age,
@@ -34,17 +44,36 @@ export default function ActivitiesScreen() {
       title,
       description,
     });
+    Alert.alert(title, statChanges);
+    useActivity(activityId);
+  };
+
+  const handlePlay = () => {
+    const option = PLAY_OPTIONS[Math.floor(Math.random() * PLAY_OPTIONS.length)];
+    const changes: string[] = [];
+    if (option.health) changes.push(`${option.health > 0 ? '+' : ''}${option.health} Health`);
+    if (option.happiness) changes.push(`${option.happiness > 0 ? '+' : ''}${option.happiness} Happiness`);
+    if (option.smarts) changes.push(`${option.smarts > 0 ? '+' : ''}${option.smarts} Smarts`);
+    doActivity('play', 'Playtime', `You ${option.name}.`, changes.join(', '), () => {
+      if (option.health) modifyStat('health', option.health);
+      if (option.happiness) modifyStat('happiness', option.happiness);
+      if (option.smarts) modifyStat('smarts', option.smarts);
+    });
   };
 
   const handleGym = () => doActivity(
+    'gym',
     'Hit the Gym',
     'You worked out and feel great.',
+    '+5 Health, +2 Looks, +2 Happiness',
     () => { modifyStat('health', 5); modifyStat('looks', 2); modifyStat('happiness', 2); },
   );
 
   const handleLibrary = () => doActivity(
+    'library',
     'Studied at the Library',
     'You spent time reading and learning.',
+    '+5 Smarts, -1 Happiness',
     () => { modifyStat('smarts', 5); modifyStat('happiness', -1); },
   );
 
@@ -55,7 +84,7 @@ export default function ActivitiesScreen() {
       return;
     }
     removeMoney(cost);
-    doActivity('Went to the Club', 'You partied the night away.', () => {
+    doActivity('nightclub', 'Went to the Club', 'You partied the night away.', '+8 Happiness, -2 Health, +1 Looks', () => {
       modifyStat('happiness', 8);
       modifyStat('health', -2);
       modifyStat('looks', 1);
@@ -63,8 +92,10 @@ export default function ActivitiesScreen() {
   };
 
   const handleDating = () => doActivity(
+    'dating',
     'Swiped on Dating App',
     'You browsed profiles and matched with someone interesting.',
+    '+3 Happiness',
     () => { modifyStat('happiness', 3); },
   );
 
@@ -75,15 +106,17 @@ export default function ActivitiesScreen() {
       return;
     }
     removeMoney(cost);
-    doActivity('Went Shopping', 'You bought some new clothes.', () => {
+    doActivity('shopping', 'Went Shopping', 'You bought some new clothes.', '+5 Looks, +5 Happiness', () => {
       modifyStat('looks', 5);
       modifyStat('happiness', 5);
     });
   };
 
   const handleVolunteer = () => doActivity(
+    'volunteer',
     'Volunteered',
     'You spent time helping others in the community.',
+    '+5 Happiness, +5 Reputation',
     () => { modifyStat('happiness', 5); modifyReputation(5); },
   );
 
@@ -118,6 +151,7 @@ export default function ActivitiesScreen() {
   };
 
   const activities = [
+    { id: 'play', emoji: '\u{1F3A8}', title: 'Play', subtitle: 'Have fun (+Health, +Happy)', minAge: 1, maxAge: 12, onPress: handlePlay },
     { id: 'gym', emoji: '\u{1F3CB}', title: 'Gym', subtitle: 'Work out (+Health, +Looks)', minAge: 5, onPress: handleGym },
     { id: 'library', emoji: '\u{1F4DA}', title: 'Library', subtitle: 'Study (+Smarts)', minAge: 5, onPress: handleLibrary },
     { id: 'nightclub', emoji: '\u{1F378}', title: 'Nightclub', subtitle: 'Party ($50)', minAge: 18, onPress: handleNightclub },
@@ -128,12 +162,12 @@ export default function ActivitiesScreen() {
     { id: 'crime', emoji: '\u{1F5E1}\uFE0F', title: 'Crime', subtitle: 'Live on the edge...', minAge: 10, onPress: () => setShowCrimes(!showCrimes) },
   ];
 
-  const visibleActivities = activities.filter((a) => character.age >= a.minAge);
+  const visibleActivities = activities.filter((a) => character.age >= a.minAge && (!a.maxAge || character.age <= a.maxAge));
 
   return (
     <View style={styles.container}>
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.md }]}
         showsVerticalScrollIndicator={false}
       >
         {character.inPrison ? (
@@ -147,27 +181,31 @@ export default function ActivitiesScreen() {
           </Card>
         ) : (
           <>
-            {visibleActivities.map((activity) => (
-              <Pressable
-                key={activity.id}
-                onPress={activity.onPress}
-              >
-                <Card style={styles.activityCard}>
-                  <View style={styles.activityRow}>
-                    <Text variant="title2">{activity.emoji}</Text>
-                    <View style={styles.activityInfo}>
-                      <Text variant="headline">{activity.title}</Text>
-                      <Text variant="footnote" color={colors.secondaryText}>
-                        {activity.subtitle}
+            {visibleActivities.map((activity) => {
+              const used = activitiesUsedThisSeason.includes(activity.id);
+              return (
+                <Pressable
+                  key={activity.id}
+                  onPress={used ? undefined : activity.onPress}
+                  disabled={used}
+                >
+                  <Card style={[styles.activityCard, used && { opacity: 0.4 }]}>
+                    <View style={styles.activityRow}>
+                      <Text variant="title2">{activity.emoji}</Text>
+                      <View style={styles.activityInfo}>
+                        <Text variant="headline">{activity.title}</Text>
+                        <Text variant="footnote" color={colors.secondaryText}>
+                          {used ? 'Done' : activity.subtitle}
+                        </Text>
+                      </View>
+                      <Text variant="body" color={colors.tertiaryText}>
+                        {used ? '\u2713' : '\u203A'}
                       </Text>
                     </View>
-                    <Text variant="body" color={colors.tertiaryText}>
-                      {'\u203A'}
-                    </Text>
-                  </View>
-                </Card>
-              </Pressable>
-            ))}
+                  </Card>
+                </Pressable>
+              );
+            })}
 
             {/* Crime submenu */}
             {showCrimes && (
@@ -203,6 +241,28 @@ export default function ActivitiesScreen() {
             )}
           </>
         )}
+
+        {/* New Life */}
+        <Pressable
+          onPress={() => {
+            useGameStore.getState().resetGame();
+            useAppStore.getState().setHasStartedGame(false);
+            router.push('/character-creation');
+          }}
+        >
+          <Card style={styles.newLifeCard}>
+            <View style={styles.activityRow}>
+              <Text variant="title2">{'\u{1F331}'}</Text>
+              <View style={styles.activityInfo}>
+                <Text variant="headline">New Life</Text>
+                <Text variant="footnote" color={colors.secondaryText}>
+                  Start over with a new character
+                </Text>
+              </View>
+              <Text variant="body" color={colors.tertiaryText}>{'\u203A'}</Text>
+            </View>
+          </Card>
+        </Pressable>
       </ScrollView>
     </View>
   );
@@ -241,5 +301,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.separator,
     gap: 2,
+  },
+  newLifeCard: {
+    marginTop: spacing.sm,
   },
 });

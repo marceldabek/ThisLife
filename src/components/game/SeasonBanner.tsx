@@ -15,16 +15,22 @@ const SEASON_CONFIG: Record<Season, { label: string; tint: string; tintBg: strin
 interface SeasonBannerProps {
   season: Season;
   age: number;
+  year: number;
 }
 
-export function SeasonBanner({ season, age }: SeasonBannerProps) {
+export function SeasonBanner({ season, age, year }: SeasonBannerProps) {
   const config = SEASON_CONFIG[season];
 
   return (
     <View style={[styles.container, { backgroundColor: config.tintBg }]}>
-      <Text variant="caption1" color={config.tint} style={styles.seasonLabel}>
-        {config.label.toUpperCase()}
-      </Text>
+      <View style={styles.yearSeasonRow}>
+        <Text variant="caption1" color={colors.primaryText} style={styles.yearLabel}>
+          {year}
+        </Text>
+        <Text variant="caption1" color={config.tint} style={styles.seasonLabel}>
+          {config.label.toUpperCase()}
+        </Text>
+      </View>
       <Text variant="tabularLarge" color={colors.primaryText}>
         {age}
       </Text>
@@ -37,12 +43,21 @@ export function SeasonBanner({ season, age }: SeasonBannerProps) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.xl,
+    paddingHorizontal: spacing.md,
     borderRadius: borderRadius.lg,
     gap: spacing.xs,
+  },
+  yearSeasonRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  yearLabel: {
+    fontWeight: '700',
   },
   seasonLabel: {
     fontWeight: '700',

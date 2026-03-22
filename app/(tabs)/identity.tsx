@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, Card, StatBar } from '../../src/components/ui';
 import { useGameStore } from '../../src/store/gameStore';
 import { colors, spacing } from '../../src/theme';
 import { formatMoney, formatMoneyCompact, formatLifeStage } from '../../src/utils/format';
 
 export default function IdentityScreen() {
+  const insets = useSafeAreaInsets();
   const character = useGameStore((s) => s.character);
   const assets = useGameStore((s) => s.assets);
   const lifetimeEarnings = useGameStore((s) => s.lifetimeEarnings);
@@ -16,7 +18,7 @@ export default function IdentityScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.md }]}
         showsVerticalScrollIndicator={false}
       >
         {/* Profile */}
