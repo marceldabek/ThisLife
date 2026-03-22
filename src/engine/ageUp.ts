@@ -491,6 +491,7 @@ export interface AgeUpResult {
   eventLog: EventLogEntry[];
   gameOver: boolean;
   lifetimeEarnings: number;
+  pendingUniversityChoice?: boolean;
 }
 
 export function performAgeUp(state: GameState): Partial<AgeUpResult> {
@@ -568,6 +569,7 @@ export function performAgeUp(state: GameState): Partial<AgeUpResult> {
 
   // 6. Education progression
   const eduUpdate = progressEducation(state.character.education, newAge);
+  let triggerUniversityChoice = false;
   if (eduUpdate.graduated && eduUpdate.graduatedLevel) {
     const levelNames: Record<EducationLevel, string> = {
       none: '',
@@ -578,6 +580,25 @@ export function performAgeUp(state: GameState): Partial<AgeUpResult> {
       gradSchool: 'graduate school',
     };
     summaryParts.push(`Graduated from ${levelNames[eduUpdate.graduatedLevel]}!`);
+
+    // After high school graduation → prompt university selection
+    if (eduUpdate.graduatedLevel === 'highSchool') {
+      triggerUniversityChoice = true;
+    }
+  }
+
+  // Tuition expenses for enrolled college/grad students
+  if (
+    eduUpdate.education.isEnrolled &&
+    (eduUpdate.education.level === 'college' || eduUpdate.education.level === 'gradSchool') &&
+    newAge >= 18
+  ) {
+    // Tuition is stored on character via university prestige, default moderate
+    const tuition = state.character.education.universityPrestige
+      ? [800, 1200, 2000, 5500, 9000, 12000][state.character.education.universityPrestige] ?? 2000
+      : 2000;
+    money -= tuition;
+    summaryParts.push(`Paid $${tuition.toLocaleString()} tuition.`);
   }
 
   // 7. Prison
@@ -638,5 +659,6 @@ export function performAgeUp(state: GameState): Partial<AgeUpResult> {
     assets: updatedAssets,
     eventLog: [logEntry, ...state.eventLog],
     lifetimeEarnings,
+    ...(triggerUniversityChoice ? { pendingUniversityChoice: true } : {}),
   };
 }

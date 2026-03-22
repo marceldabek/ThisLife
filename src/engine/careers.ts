@@ -11,6 +11,8 @@ import {
   GameState,
 } from '../types/game';
 import { chance, randomInt, clamp, pickRandom } from '../utils/random';
+import { pickRandomCompany, adjustSalaryForCompany } from '../data/companies';
+import { getMajorById } from '../data/universities';
 
 // ---- Education Rank (for comparison) ----
 
@@ -130,6 +132,19 @@ export function attemptApplication(
   // Reputation modifier: reputation ranges -100 to 100, scale to -0.1 to 0.1
   hireChance += (character.reputation / 100) * 0.1;
 
+  // Major bonus: if player's college major matches this career, +10%
+  if (character.education.majorId) {
+    const major = getMajorById(character.education.majorId);
+    if (major && major.careerBonus.includes(career.id)) {
+      hireChance += 0.10;
+    }
+  }
+
+  // University prestige bonus: 1-5 scaled to 0-5%
+  if (character.education.universityPrestige) {
+    hireChance += character.education.universityPrestige * 0.01;
+  }
+
   // Criminal record penalty
   if (character.criminalRecord.length > 0) {
     hireChance -= 0.05 * Math.min(character.criminalRecord.length, 4);
@@ -151,15 +166,20 @@ export function attemptApplication(
 
 /**
  * Create a new CareerPosition at level 0 (entry level) of the given career.
+ * Assigns a random fictional company and adjusts salary by company prestige.
  */
 export function createPosition(career: CareerDefinition): CareerPosition {
   const entryLevel: CareerLevel = career.levels[0];
+  const company = pickRandomCompany(career.id);
+  const adjustedSalary = adjustSalaryForCompany(entryLevel.salary, company.prestige);
 
   return {
     careerId: career.id,
+    companyName: company.name,
+    companyPrestige: company.prestige,
     title: entryLevel.title,
     level: 0,
-    salary: entryLevel.salary,
+    salary: adjustedSalary,
     seasonsInRole: 0,
     satisfaction: 50,
     performance: 50,
@@ -241,7 +261,7 @@ export function promote(
     ...position,
     level: nextLevelIndex,
     title: nextLevel.title,
-    salary: nextLevel.salary,
+    salary: adjustSalaryForCompany(nextLevel.salary, position.companyPrestige),
     seasonsInRole: 0,
   };
 }

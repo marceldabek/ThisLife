@@ -35,6 +35,10 @@ export default function RootLayout() {
           options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
         />
         <Stack.Screen
+          name="university-selection"
+          options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
+        />
+        <Stack.Screen
           name="character-creation"
           options={{ presentation: 'fullScreenModal' }}
         />

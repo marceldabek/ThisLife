@@ -56,8 +56,14 @@ export default function LifeScreen() {
     // First, advance the season (runs ageUp engine)
     ageUp();
 
-    // Then check for random events
+    // Check if university choice is pending (just graduated high school)
     const state = useGameStore.getState();
+    if (state.pendingUniversityChoice) {
+      router.push('/university-selection');
+      return;
+    }
+
+    // Then check for random events
     const allEvents = getAllEvents();
 
     if (allEvents.length > 0) {

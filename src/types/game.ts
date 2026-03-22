@@ -70,6 +70,8 @@ export interface Education {
   school?: string;
   gpa?: number;
   major?: string;
+  majorId?: string;           // links to Major.id for career bonus lookup
+  universityPrestige?: number; // 1-5, from the university attended
   yearsCompleted: number;
   isEnrolled: boolean;
 }
@@ -98,9 +100,11 @@ export interface CareerDefinition {
 
 export interface CareerPosition {
   careerId: string;
+  companyName: string;   // fictional company name
+  companyPrestige: number; // 1-3, affects salary
   title: string;
   level: number;         // index into CareerDefinition.levels
-  salary: number;        // per season
+  salary: number;        // per season (adjusted for company prestige)
   seasonsInRole: number;
   satisfaction: number;  // 0-100
   performance: number;   // 0-100
@@ -221,6 +225,7 @@ export interface GameState {
   firedEventIds: string[];     // one-time events that already fired
   activitiesUsedThisSeason: string[];
   seasonsSinceLastEvent: number; // pity system counter
+  pendingUniversityChoice: boolean; // true after HS graduation
   gameOver: boolean;
   lifetimeEarnings: number;
 }

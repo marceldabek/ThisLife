@@ -134,6 +134,7 @@ const initialState: GameState = {
   firedEventIds: [],
   activitiesUsedThisSeason: [],
   seasonsSinceLastEvent: 0,
+  pendingUniversityChoice: false,
   gameOver: false,
   lifetimeEarnings: 0,
 };
@@ -178,7 +179,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     const updates = performAgeUp(state);
     if (Object.keys(updates).length > 0) {
-      set({ ...updates, activitiesUsedThisSeason: [] });
+      const { pendingUniversityChoice, ...rest } = updates;
+      set({
+        ...rest,
+        activitiesUsedThisSeason: [],
+        ...(pendingUniversityChoice ? { pendingUniversityChoice: true } : {}),
+      });
     }
   },
 
